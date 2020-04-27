@@ -114,8 +114,10 @@ body {
 
 button {
   cursor: pointer;
+  transition: all 0.2s;
   &:active {
     outline: none;
+    transform: translateY(0.2rem);
   }
 }
 ::placeholder {

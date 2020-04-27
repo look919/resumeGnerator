@@ -6,12 +6,11 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please provide a name'],
   },
   address: {
     type: Object,
     default: {
-      country: 'Poland',
+      country: '',
       town: '',
       postCode: '',
       street: '',
@@ -26,7 +25,6 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: [true, 'Please provide your phone number'],
     validate: [validator.isMobilePhone, 'Please provide a valid phone nr'],
   },
   role: {
@@ -76,22 +74,12 @@ userSchema.pre('save', function (next) {
   next();
 });
 
-userSchema.pre(/^find/, async function (next) {
-  // this.findOne().populate({
-  //   path: 'orders',
-  //   select: 'price user items',
-  // });
-
-  next();
-});
-
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
-
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
@@ -100,10 +88,8 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
     );
     return JWTTimestamp < changedTimestamp;
   }
-
   return false;
 };
-
 userSchema.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString('hex');
   this.passwordResetToken = crypto

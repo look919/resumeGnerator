@@ -1,11 +1,16 @@
 import React, { useContext, useState, Fragment } from 'react';
+import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { login, register } from '../../actions/auth';
+import { Context } from '../../Wrapper';
+
 import Logo from '../../img/logo.png';
 import UKFlag from '../../img/uk.png';
 import PLFlag from '../../img/pl.png';
 import { RegisterIcon, LoginIcon } from '../layout/Icons';
-import { Context } from '../../Wrapper';
 
-const DashboardPage = () => {
+const DashboardPage = ({ auth, login, register }) => {
   const context = useContext(Context);
   const [page, setPage] = useState('dashboard');
   const [formData, setFormData] = useState({
@@ -17,6 +22,28 @@ const DashboardPage = () => {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const onLogin = async (e) => {
+    e.preventDefault();
+    login(formData);
+    setFormData({
+      email: '',
+      password: '',
+      passwordConfirm: '',
+    });
+  };
+  const onRegister = async (e) => {
+    e.preventDefault();
+    register(formData);
+    setFormData({
+      email: '',
+      password: '',
+      passwordConfirm: '',
+    });
+  };
+
+  if (auth) {
+    return <Redirect to={'/user'} />;
+  }
 
   const DashboardPage = () => (
     <div className="dashboard__boxes">
@@ -94,7 +121,9 @@ const DashboardPage = () => {
           >
             Register &rarr;
           </button>
-          <button className="login__btn">Login</button>
+          <button onClick={(e) => onLogin(e)} className="login__btn">
+            Login
+          </button>
         </div>
       ) : (
         <div className="register">
@@ -126,7 +155,9 @@ const DashboardPage = () => {
           <button onClick={() => setPage('login')} className="login__redirect">
             Login &rarr;
           </button>
-          <button className="login__btn">Register</button>
+          <button onClick={(e) => onRegister(e)} className="login__btn">
+            Register
+          </button>
         </div>
       )}
 
@@ -138,4 +169,14 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+DashboardPage.propTypes = {
+  login: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  auth: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login, register })(DashboardPage);
