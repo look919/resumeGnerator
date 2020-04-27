@@ -1,0 +1,114 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html,
+body {
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+html {
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-1400) {
+    font-size: 55%;
+  }
+  @media only screen and (max-width: $bp-1000) {
+    font-size: 50%;
+  }
+  @media only screen and (max-width: $bp-600) {
+    font-size: 45%;
+  }
+  @media only screen and (max-width: $bp-400) {
+    // font-size: 40%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-top: 5rem;
+
+  display: grid;
+  grid-template-rows: 17rem min-content [recommended-start] min-content [recommended-end footer-start] min-content [footer-end];
+  grid-template-columns:
+    [marginLeft-start] 3rem [marginLeft-end full-start] 8rem [center-start] calc(
+      100% - 22rem
+    )
+    [center-end] 8rem [full-end marginRight-start] 3rem [marginRight-end];
+  grid-row-gap: 5rem;
+
+  @media only screen and (max-width: $bp-800) {
+    grid-template-rows: 12rem min-content [recommended-start] min-content [recommended-end footer-start] min-content [footer-end];
+  }
+  @media only screen and (max-width: $bp-600) {
+    grid-template-columns:
+      [marginLeft-start] 2rem [marginLeft-end full-start] 6rem [center-start] calc(
+        100% - 18rem
+      )
+      [center-end] 6rem [full-end marginRight-start] 2rem [marginRight-end];
+
+    margin-top: 3.5rem;
+  }
+  @media only screen and (max-width: $bp-450) {
+    grid-template-rows: 8rem min-content [recommended-start] min-content [recommended-end footer-start] min-content [footer-end];
+    grid-template-columns:
+      [marginLeft-start] 1rem [marginLeft-end full-start] 6rem [center-start] calc(
+        100% - 14rem
+      )
+      [center-end] 6rem [full-end marginRight-start] 1rem [marginRight-end];
+  }
+
+  &--category {
+    grid-template-rows: 17rem min-content [footer-start] min-content [footer-end];
+
+    @media only screen and (max-width: $bp-800) {
+      grid-template-rows: 12rem min-content [footer-start] min-content [footer-end];
+    }
+
+    @media only screen and (max-width: $bp-450) {
+      grid-template-rows: 8rem min-content [footer-start] min-content [footer-end];
+    }
+  }
+  &--login {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10rem;
+
+    background-image: url('../../img/landscape.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.devInfo {
+  color: $color-black;
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+
+  &--left {
+    text-align: left;
+  }
+}
+::selection {
+  background-color: $color-primary-dark;
+  color: $color-white;
+}
