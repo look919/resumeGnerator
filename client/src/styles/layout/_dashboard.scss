@@ -22,16 +22,34 @@
       justify-self: start;
     }
   }
-  &__box {
+  &__info {
+    grid-row: 3 / 4;
+    grid-column: 1 / -1;
+
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  &__boxes {
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 7rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__box {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-items: center;
+
     padding: 2rem 0;
     color: $color-grey-light-1;
     text-align: center;
+    cursor: pointer;
 
     &--login {
       background-color: $color-dashboard-light;
@@ -44,11 +62,63 @@
       height: 6rem;
       width: 6rem;
       fill: $color-white;
+      margin-bottom: 1.5rem;
+    }
+    &__span {
+      align-self: flex-end;
     }
   }
   &__footer {
     text-align: center;
-    grid-row: 4 / 5;
+    grid-row: 5 / 6;
     grid-column: 1 / -1;
+  }
+}
+
+.login,
+.register {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-rows: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  &__heading {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-weight: 600;
+  }
+  &__input {
+    grid-column: 1 / -1;
+    width: 20rem;
+
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.4rem 2rem;
+    margin-bottom: 0.5rem;
+  }
+  &__btn {
+    grid-column: 2 / 3;
+    width: 100%;
+    height: 100%;
+
+    color: $color-white;
+    padding: 0.5rem 2rem;
+    border: none;
+    background-image: linear-gradient(
+      to right,
+      rgba($color-dashboard-light, 1),
+      rgba($color-dashboard-dark, 1)
+    );
+  }
+
+  &__redirect {
+    justify-self: start;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 3px;
   }
 }
