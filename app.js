@@ -12,7 +12,6 @@ const cookieParser = require('cookie-parser');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 const productRouter = require('./routes/productRoutes');
-const bookingRouter = require('./routes/bookingRoutes');
 
 const app = express();
 
@@ -52,7 +51,6 @@ app.use(
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
-app.use('/api/v1/booking', bookingRouter);
 
 app.use(globalErrorHandler);
 

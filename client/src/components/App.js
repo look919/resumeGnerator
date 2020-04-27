@@ -7,7 +7,7 @@ import { loadUser } from '../actions/auth';
 import setAuthToken from './../utils/setAuthToken';
 
 import Alert from './layout/Alert';
-
+import DashboardPage from './dashboard/DashboardPage';
 import NotFoundPage from './layout/NotFoundPage';
 
 import '../styles/main.scss';
