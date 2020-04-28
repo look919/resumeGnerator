@@ -2,12 +2,16 @@
   font-family: $font-primary;
   font-weight: 300;
   line-height: 1;
-  color: $color-primary-dark;
   letter-spacing: 1px;
   margin: 0;
 }
 a {
   text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: inherit;
+  }
   &:hover {
     text-decoration: none;
   }
@@ -28,9 +32,14 @@ body {
   color: $color-black;
 }
 
-.heading-1 {
+.heading-resume {
   @extend %heading;
-  font-size: 4rem;
+  font-weight: 600;
+  border-bottom: 1.5px solid $color-black;
+  padding-bottom: 1px;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 .heading-2 {
@@ -101,15 +110,6 @@ body {
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
-}
-
-.isActive {
-  color: $color-primary !important;
-  font-weight: 600;
-
-  &--2 {
-    color: $color-primary-dark !important;
-  }
 }
 
 button {

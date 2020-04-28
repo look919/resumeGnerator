@@ -8,6 +8,7 @@ import setAuthToken from './../utils/setAuthToken';
 
 import Alert from './layout/Alert';
 import DashboardPage from './dashboard/DashboardPage';
+import UserPage from './user/UserPage';
 import NotFoundPage from './layout/NotFoundPage';
 
 import '../styles/main.scss';
@@ -25,6 +26,7 @@ const App = () => {
           <Alert />
           <Switch>
             <Route path="/" component={DashboardPage} exact={true} />
+            <Route path="/user" component={UserPage} />
 
             <Route component={NotFoundPage} />
           </Switch>

@@ -5,4 +5,9 @@
 @import './base/typography';
 @import './base/utilities';
 
-@import './layout/dashboard';
+@import './components/dashboard';
+@import './components/userPage';
+@import './components/userForms';
+@import './components/userPreview';
+
+@import './layout/header';
