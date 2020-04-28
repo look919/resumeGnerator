@@ -7,12 +7,12 @@
   box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
 
   //a4 margins
-  padding: 3.75rem 2.8rem;
+  padding: 2.5rem 2.8rem;
   padding-right: 2.2rem;
 
   display: grid;
   grid-template-columns: 6.2fr 3.8fr;
-  grid-template-rows: 10rem 6rem 4.5rem 14rem;
+  grid-template-rows: 10rem 6rem 4.5rem 9rem 8rem 1fr;
   grid-column-gap: 1.5rem;
 
   transition: all 1s;
@@ -170,7 +170,7 @@
     }
   }
   &__projects {
-    grid-row: 4 / 5;
+    grid-row: 4 / 6;
     grid-column: 1 / 2;
 
     display: flex;
@@ -214,5 +214,59 @@
   &__skills {
     grid-row: 4 / 5;
     grid-column: 2 / 3;
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 0.8rem;
+
+      &__item {
+        height: 1.2rem;
+        display: flex;
+        align-items: center;
+
+        &__text {
+          font-size: 0.6rem;
+        }
+        &__icon {
+          height: 0.8rem;
+          width: 0.8rem;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  &__certificates {
+    grid-row: 5 / 6;
+    grid-column: 2/ 3;
+    align-self: end;
+    margin-bottom: 0.8rem;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        line-height: 1.4;
+
+        &__text {
+          font-size: 7px;
+          font-weight: 600;
+        }
+        &__icon {
+          height: 0.8rem;
+          width: 0.8rem;
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+  &__clause {
+    grid-column: 1 / -1;
+    font-size: 0.6rem;
+    color: $color-grey-light-2;
   }
 }

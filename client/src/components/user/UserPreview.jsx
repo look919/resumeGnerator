@@ -5,7 +5,20 @@ import {
   WebsiteIcon,
   PinIcon,
   CalendarIcon,
+  StarIcon,
 } from '../layout/Icons';
+import {
+  GitIcon,
+  HTMLIcon,
+  CSSIcon,
+  SassIcon,
+  JavaScriptIcon,
+  NodeJsIcon,
+  ReactIcon,
+  ReduxIcon,
+  MongoDBIcon,
+  HerokuIcon,
+} from '../layout/BrandIcons';
 import DefaultImg from '../../img/default.jpg';
 const UserPreview = () => {
   return (
@@ -183,6 +196,95 @@ const UserPreview = () => {
         <div className="heading-resume">
           <h3 className="userPreview__heading">Skills</h3>
         </div>
+        <div className="userPreview__skills__content">
+          <div className="userPreview__skills__content__item">
+            <GitIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              Git
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <HTMLIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              HTML
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <CSSIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              CSS
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <SassIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              Sass
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <JavaScriptIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              JS ES6+
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <NodeJsIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              Node.js
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <ReactIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              React
+            </span>
+          </div>
+          <div className="userPreview__skills__content__item">
+            <ReduxIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              Redux
+            </span>
+          </div>
+
+          <div className="userPreview__skills__content__item">
+            <MongoDBIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              MongoDB
+            </span>
+          </div>
+
+          <div className="userPreview__skills__content__item">
+            <HerokuIcon />{' '}
+            <span className="userPreview__skills__content__item__text">
+              Heroku
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="userPreview__certificates">
+        <div className="heading-resume">
+          <h3 className="userPreview__heading">Certifications</h3>
+        </div>
+        <div className="userPreview__certificates__content">
+          <div className="userPreview__certificates__content__item">
+            <StarIcon className="userPreview__certificates__content__item__icon color--blue" />
+            <span className="userPreview__certificates__content__item__text">
+              TOEiC Listening & Reading Certification
+            </span>
+          </div>
+          <div className="userPreview__certificates__content__item">
+            <StarIcon className="userPreview__certificates__content__item__icon color--blue" />
+
+            <span className="userPreview__certificates__content__item__text">
+              Microsoft Technology Associate Certification
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="userPreview__clause">
+        I hereby consent to my personal data being processed by (company name)
+        for the purpose of considering my application for the vacancy advertised
+        under reference number (123XX6 etc.)
       </div>
     </section>
   );
