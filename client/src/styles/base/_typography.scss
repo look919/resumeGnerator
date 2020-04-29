@@ -37,7 +37,7 @@ body {
   font-weight: 600;
   border-bottom: 1.5px solid $color-black;
   padding-bottom: 1px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   width: 100%;
   text-transform: uppercase;
 }
@@ -121,7 +121,7 @@ button {
   }
 }
 ::placeholder {
-  color: $color-black;
+  color: $color-grey-light-2;
   font-size: 1.2rem;
 }
 

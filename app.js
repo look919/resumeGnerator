@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 
@@ -11,6 +10,7 @@ const cookieParser = require('cookie-parser');
 
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
+const resumeRouter = require('./routes/resumeRoutes');
 
 const app = express();
 
@@ -49,6 +49,7 @@ app.use(
 );
 
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/resumes', resumeRouter);
 
 app.use(globalErrorHandler);
 
