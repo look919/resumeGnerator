@@ -26,7 +26,10 @@ const App = () => {
           <Alert />
           <Switch>
             <Route path="/" component={DashboardPage} exact={true} />
-            <Route path="/user" component={UserPage} />
+            <Route
+              path="/user/:form"
+              render={(props) => <UserPage {...props} isAuthed={true} />}
+            />
 
             <Route component={NotFoundPage} />
           </Switch>

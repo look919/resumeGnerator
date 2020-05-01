@@ -112,6 +112,10 @@ body {
   border: #ccc solid 1px;
 }
 
+.isActive {
+  font-weight: 600;
+}
+
 button {
   cursor: pointer;
   transition: all 0.2s;

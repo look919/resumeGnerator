@@ -7,7 +7,7 @@ import UserPageHeader from './UserPageHeader';
 import ResumeCreator from './resumeCreator/ResumeCreator';
 import ResumePreview from './resumePreview/ResumePreview';
 
-const UserPage = ({ auth }) => {
+const UserPage = ({ auth, ...props }) => {
   if (!auth) {
     return <Redirect to="/" />;
   }
@@ -18,10 +18,9 @@ const UserPage = ({ auth }) => {
       <section className="userPage__content">
         <h2 className="heading-2 userPage__content__header">Kreator</h2>
         <h2 className="heading-2 userPage__content__header">Podgląd</h2>
-        <ResumeCreator />
+        <ResumeCreator form={props.match.params.form} />
         <ResumePreview />
       </section>
-      )
     </main>
   );
 };

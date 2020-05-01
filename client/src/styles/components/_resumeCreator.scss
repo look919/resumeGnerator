@@ -1,8 +1,8 @@
 .resumeCreator {
   width: 100%;
-  height: 100%;
+  height: 44.55rem;
   display: grid;
-  grid-template-rows: 6rem 1fr;
+  grid-template-rows: 4rem 1fr;
   align-items: center;
 
   &__list {
@@ -10,5 +10,68 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    &__item {
+      cursor: none;
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    align-items: center;
+    justify-items: center;
+
+    &__btns {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 18rem 1fr 18rem;
+      align-items: center;
+      color: $color-grey-light-1;
+      text-align: center;
+
+      &__btn {
+        font-size: 1.4rem;
+        padding: 0.4rem 1.4rem;
+        width: 100%;
+        height: 100%;
+
+        background-image: linear-gradient(
+          to right,
+          rgba($color-dashboard-light, 1),
+          rgba($color-dashboard-dark, 1)
+        );
+
+        &--previous {
+          grid-column: 1 / 2;
+
+          background-color: $color-dashboard-light;
+          clip-path: polygon(
+            100% 0%,
+            75% 50%,
+            100% 100%,
+            25% 100%,
+            0% 50%,
+            25% 0%
+          );
+        }
+        &--next {
+          grid-column: 3 / 4;
+          background-color: $color-dashboard-dark;
+          clip-path: polygon(
+            75% 0%,
+            100% 50%,
+            75% 100%,
+            0% 100%,
+            25% 50%,
+            0% 0%
+          );
+        }
+      }
+    }
   }
 }

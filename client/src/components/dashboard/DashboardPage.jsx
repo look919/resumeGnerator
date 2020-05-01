@@ -42,7 +42,7 @@ const DashboardPage = ({ auth, login, register }) => {
   };
 
   if (auth) {
-    return <Redirect to={'/user'} />;
+    return <Redirect to={'/user/main'} />;
   }
 
   const DashboardPage = () => (
