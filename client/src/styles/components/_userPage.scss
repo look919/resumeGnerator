@@ -13,6 +13,100 @@
   align-items: center;
   justify-items: center;
 
+  &__menu {
+    width: 100%;
+    height: 100%;
+    padding: 10rem;
+    display: grid;
+    grid-template-rows: 4rem calc(100% - 4rem);
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    align-items: center;
+    justify-items: center;
+
+    &__create {
+      width: 100%;
+      height: 100%;
+      background-color: $color-dashboard-light;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &__lang {
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0;
+
+        &__text {
+          margin: 0 1rem;
+        }
+        &__btn {
+          &--en,
+          &--pl {
+            width: 4.5rem;
+            height: 3rem;
+            border: none;
+            margin: 0 1rem;
+            cursor: pointer;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &:focus {
+              outline: none;
+            }
+          }
+          &--en {
+            background-image: url('../../img/uk.png');
+          }
+          &--pl {
+            background-image: url('../../img/pl.png');
+          }
+          &--active {
+            border: 1px solid $color-black;
+          }
+        }
+      }
+      &__colors {
+        display: flex;
+        align-items: center;
+
+        &__color {
+          height: 2rem;
+          width: 2rem;
+          border-radius: 50%;
+          border: 1px solid $color-black;
+          cursor: pointer;
+          margin: 0.5rem 1rem;
+
+          &--active {
+            box-shadow: 0 0 3pt 2pt $color-black;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+    &__load {
+      width: 100%;
+      height: 100%;
+      background-color: $color-dashboard-dark;
+
+      &__btn {
+        width: 50%;
+        height: 100%;
+        border: none;
+        background-color: $color-dashboard-dark;
+      }
+    }
+  }
   &__content {
     width: 100%;
     height: 100%;

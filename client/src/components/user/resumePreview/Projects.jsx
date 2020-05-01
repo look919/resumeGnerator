@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebsiteIcon } from '../../layout/Icons';
+import { WebsiteIcon2 } from '../../layout/Icons';
 
 const Projects = () => {
   return (
@@ -13,7 +13,7 @@ const Projects = () => {
             TomOffice
           </span>
           <div className="resumePreview__projects__content__item__link">
-            <WebsiteIcon className="resumePreview__projects__content__item__link__icon" />
+            <WebsiteIcon2 className="resumePreview__projects__content__item__link__icon" />
             <a
               href="https://tomoffice.herokuapp.com/"
               className="resumePreview__projects__content__item__link__a"
@@ -32,7 +32,7 @@ const Projects = () => {
             HotelGiant
           </span>
           <div className="resumePreview__projects__content__item__link">
-            <WebsiteIcon className="resumePreview__projects__content__item__link__icon" />
+            <WebsiteIcon2 className="resumePreview__projects__content__item__link__icon" />
             <a
               href="https://tomoffice.herokuapp.com/"
               className="resumePreview__projects__content__item__link__a"
@@ -50,7 +50,7 @@ const Projects = () => {
             ResumeGenerator
           </span>
           <div className="resumePreview__projects__content__item__link">
-            <WebsiteIcon className="resumePreview__projects__content__item__link__icon" />
+            <WebsiteIcon2 className="resumePreview__projects__content__item__link__icon" />
             <a
               href="https://tomoffice.herokuapp.com/"
               className="resumePreview__projects__content__item__link__a"

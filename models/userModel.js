@@ -4,29 +4,6 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-  },
-  address: {
-    type: Object,
-    default: {
-      country: '',
-      town: '',
-      postCode: '',
-      street: '',
-    },
-  },
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: [true, 'This email is already taken'],
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email'],
-  },
-  phone: {
-    type: String,
-    validate: [validator.isMobilePhone, 'Please provide a valid phone nr'],
-  },
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -48,6 +25,49 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
+
+  email: {
+    type: String,
+    required: [true, 'Please provide your email'],
+    unique: [true, 'This email is already taken'],
+    lowercase: true,
+    validate: [validator.isEmail, 'Please provide a valid email'],
+  },
+  emailField: String,
+  name: String,
+  phone: String,
+  website: String,
+  country: String,
+  town: String,
+  summary: String,
+  languages: [
+    {
+      lang: String,
+      level: Number,
+    },
+  ],
+  education: [
+    {
+      role: String,
+      school: String,
+      startDate: String,
+      endDate: String,
+    },
+  ],
+  projects: [
+    {
+      name: String,
+      url: String,
+      description: String,
+    },
+  ],
+  skills: [
+    {
+      name: String,
+      img: String,
+    },
+  ],
+  certification: [String],
   createdAt: {
     type: Date,
     default: Date.now(),

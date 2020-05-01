@@ -1,71 +1,25 @@
 .color {
-  &--blue {
-    color: $color-resume-blue !important;
-    fill: $color-resume-blue !important;
+  &--lightBlue {
+    color: $color-lightBlue !important;
+    fill: $color-lightBlue !important;
+    background-color: $color-lightBlue;
   }
   &--red {
     //color: $color-resume-red !important;
   }
-}
-
-//web technologies
-.aws {
-  fill: #232f3e;
-}
-.angular {
-  fill: #dd0031;
-}
-.csharp {
-  fill: #239120;
-}
-.css {
-  fill: #1572b6;
-}
-.django {
-  fill: #092e20;
-}
-.dotnet {
-  fill: #5c2d91;
-}
-.git {
-  fill: #f05032;
-}
-.heroku {
-  fill: #430098;
-}
-.html {
-  fill: #e34f26;
-}
-.java {
-  fill: #007396;
-}
-.js {
-  fill: #f7df1e;
-}
-.mongo {
-  fill: #47a248;
-}
-.nginx {
-  fill: #269539;
-}
-.nodejs {
-  fill: #339933;
-}
-.python {
-  fill: #3776ab;
-}
-.react {
-  fill: #61dafb;
-}
-.redux {
-  fill: #f7de1d;
-}
-.sass {
-  fill: #cc6699;
-}
-.spring {
-  fill: #6db33f;
-}
-.vue {
-  fill: #4fc08d;
+  &--darkBlue {
+    color: $color-darkBlue !important;
+    fill: $color-darkBlue !important;
+    background-color: $color-darkBlue;
+  }
+  &--green {
+    color: $color-green !important;
+    fill: $color-green !important;
+    background-color: $color-green;
+  }
+  &--red {
+    color: $color-red !important;
+    fill: $color-red !important;
+    background-color: $color-red;
+  }
 }

@@ -21,6 +21,7 @@ const UserPage = ({ auth }) => {
         <ResumeCreator />
         <ResumePreview />
       </section>
+      )
     </main>
   );
 };

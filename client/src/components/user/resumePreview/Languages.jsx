@@ -16,7 +16,7 @@ const Languages = () => {
               B2
             </span>
           </div>
-          <div className="resumePreview__languages__content__item__bar resumePreview__languages__content__item__bar--3">
+          <div className="resumePreview__languages__content__item__bar resumePreview__languages__content__item__bar--3 color--lightBlue">
             &nbsp;
           </div>
         </div>
@@ -29,7 +29,7 @@ const Languages = () => {
               A2
             </span>
           </div>
-          <div className="resumePreview__languages__content__item__bar resumePreview__languages__content__item__bar--1">
+          <div className="resumePreview__languages__content__item__bar resumePreview__languages__content__item__bar--1 color--lightBlue">
             &nbsp;
           </div>
         </div>

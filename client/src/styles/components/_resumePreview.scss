@@ -2,7 +2,7 @@
   //a4 21x29 in 1.5 scale
   width: 31.5rem;
   height: 44.55rem;
-  border: 1px solid $color-black;
+  //border: 1px solid $color-black;
   background-color: $color-white;
   box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
 
@@ -16,6 +16,7 @@
   grid-column-gap: 1.5rem;
 
   transition: all 1s;
+
   &:hover {
     transform: scale(1.6);
   }
@@ -40,6 +41,7 @@
       font-size: 1.2rem;
       font-weight: 900;
       grid-column: 1 / -1;
+      background-color: initial !important;
     }
     &__data {
       font-size: 0.6rem;
@@ -53,8 +55,8 @@
       &__icon {
         height: 1rem;
         width: 1rem;
-        fill: $color-resume-blue;
         margin-right: 3px;
+        background-color: initial !important;
       }
     }
   }
@@ -140,7 +142,6 @@
         }
         &__bar {
           height: 2px;
-          background-color: $color-resume-blue;
           border-radius: 1px;
 
           &--1 {
@@ -260,6 +261,7 @@
           height: 0.8rem;
           width: 0.8rem;
           margin-right: 3px;
+          background-color: initial !important;
         }
       }
     }

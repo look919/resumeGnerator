@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AboutMe from './AboutMe';
 import Photo from './Photo';
 import Summary from './Summary';
@@ -11,7 +12,7 @@ import Clause from './Clause';
 
 const ResumePreview = () => {
   return (
-    <section className="resumePreview">
+    <section className="resumePreview" id="resume">
       <AboutMe />
       <Photo />
       <Summary />

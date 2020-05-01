@@ -48,10 +48,8 @@ exports.isLoggedIn = async (req, res, next) => {
       );
 
       // 2) Check if user still exists
-      const currentUser = await await User.findById(decoded.id).populate({
-        path: 'orders',
-        select: 'items price createdAt',
-      });
+      const currentUser = await await User.findById(decoded.id);
+
       if (!currentUser) {
         return next();
       }

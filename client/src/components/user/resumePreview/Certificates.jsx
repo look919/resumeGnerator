@@ -9,13 +9,13 @@ const Certificates = () => {
       </div>
       <div className="resumePreview__certificates__content">
         <div className="resumePreview__certificates__content__item">
-          <StarIcon className="resumePreview__certificates__content__item__icon color--blue" />
+          <StarIcon className="resumePreview__certificates__content__item__icon color--lightBlue" />
           <span className="resumePreview__certificates__content__item__text">
             TOEiC Listening & Reading Certification
           </span>
         </div>
         <div className="resumePreview__certificates__content__item">
-          <StarIcon className="resumePreview__certificates__content__item__icon color--blue" />
+          <StarIcon className="resumePreview__certificates__content__item__icon color--lightBlue" />
 
           <span className="resumePreview__certificates__content__item__text">
             Microsoft Technology Associate Certification
