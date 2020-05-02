@@ -2,8 +2,9 @@
   width: 100%;
   height: 44.55rem;
   display: grid;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 3rem 1fr;
   align-items: center;
+  justify-items: center;
 
   &__list {
     width: 100%;
@@ -27,6 +28,7 @@
 
     &__btns {
       width: 100%;
+
       height: 100%;
       display: grid;
       grid-template-columns: 18rem 1fr 18rem;
@@ -39,6 +41,8 @@
         padding: 0.4rem 1.4rem;
         width: 100%;
         height: 100%;
+        border: none;
+        color: $color-grey-light-1;
 
         background-image: linear-gradient(
           to right,

@@ -19,7 +19,8 @@
     padding: 0 3rem;
     display: grid;
     grid-template-rows: 4rem calc(100% - 4rem);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 15rem;
     align-items: center;
     justify-items: center;
 

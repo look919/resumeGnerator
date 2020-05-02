@@ -1,11 +1,11 @@
-&__input,
-&__textarea {
+.input {
   width: 100%;
   background: inherit;
   color: $color-black;
   padding: 0.3rem 0.5rem;
-  border: 1px solid $color-darkBlue;
-  font-size: 1.4rem;
+  border: none;
+  border-bottom: 1px solid $color-darkBlue;
+  font-size: 1.2rem;
 
   &:active {
     outline: none;
@@ -13,7 +13,23 @@
   }
   &:focus {
     outline: none;
-    border: 1px solid $color-lightBlue;
-    box-shadow: 0 1.5rem 4rem rgba($color-lightBlue, 0.2);
+  }
+}
+.textarea {
+  grid-row: 2 / 3;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  padding: 0.8rem 1.2rem;
+  color: $color-black;
+  font-size: 1.4rem;
+  border: 1px solid $color-darkBlue;
+
+  &:active {
+    outline: none;
+    background: inherit;
+  }
+  &:focus {
+    outline: none;
   }
 }

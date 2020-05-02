@@ -35,3 +35,9 @@
     transform: scale(1);
   }
 }
+@keyframes autofill {
+  0%,
+  100% {
+    background: transparent;
+  }
+}

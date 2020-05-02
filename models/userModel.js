@@ -4,6 +4,13 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, 'Please provide your email'],
+    unique: [true, 'This email is already taken'],
+    lowercase: true,
+    validate: [validator.isEmail, 'Please provide a valid email'],
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],
@@ -25,20 +32,11 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
-
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: [true, 'This email is already taken'],
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email'],
-  },
   emailField: String,
   name: String,
   phone: String,
   website: String,
-  country: String,
-  town: String,
+  address: String,
   summary: String,
   languages: [
     {
@@ -54,17 +52,17 @@ const userSchema = new mongoose.Schema({
       endDate: String,
     },
   ],
+  skills: [
+    {
+      name: String,
+      img: String,
+    },
+  ],
   projects: [
     {
       name: String,
       url: String,
       description: String,
-    },
-  ],
-  skills: [
-    {
-      name: String,
-      img: String,
     },
   ],
   certification: [String],
