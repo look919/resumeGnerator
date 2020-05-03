@@ -4,7 +4,6 @@ import GeneralInfo from './GeneralInfo';
 import Education from './Education';
 import Skills from './Skills';
 import Projects from './Projects';
-import Certificates from './Certificates';
 import DownloadPdf from './DownloadPdf';
 
 export const ResumeCreator = ({ form }) => {
@@ -19,8 +18,6 @@ export const ResumeCreator = ({ form }) => {
         <Skills />
       ) : form === 'projects' ? (
         <Projects />
-      ) : form === 'certificates' ? (
-        <Certificates />
       ) : form === 'final' ? (
         <DownloadPdf />
       ) : (

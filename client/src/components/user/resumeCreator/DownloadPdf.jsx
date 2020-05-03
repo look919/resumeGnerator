@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './Button';
 import html2canvas from 'html2canvas';
 import jsPdf from 'jspdf';
@@ -21,16 +21,18 @@ const GeneralInfo = () => {
   };
   return (
     <div className="resumeCreator__content">
-      <div>BABA</div>
-      <div className="resumeCreator__content__btns">
-        <Button direction="previous" link="certificates" text="Certyfikacje" />
+      <section className="resumeForms resumeForms--download">
+        <p>Twoje Cv jest gotowe, kliknij poniższy przycisk żeby je pobrać!</p>
         <button
           id="print"
           onClick={printPDF}
-          className="resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next"
+          className="resumeForms--download__btn"
         >
           Download
         </button>
+      </section>
+      <div className="resumeCreator__content__btns">
+        <Button direction="previous" link="projects" text="Projekty" />
       </div>
     </div>
   );

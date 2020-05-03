@@ -9,6 +9,9 @@ import {
   WebsiteIcon,
   PinIcon,
   SummaryIcon,
+  PhotoIcon,
+  CompanyIcon,
+  InfoIcon,
 } from '../../layout/Icons';
 
 const GeneralInfo = () => {
@@ -19,10 +22,17 @@ const GeneralInfo = () => {
     email: '',
     address: '',
     website: '',
+    company: '',
+    changes: false,
   });
+  const [photo, setPhoto] = useState(`${formData.name}-photo.png`);
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  console.log(formData);
+    setFormData({
+      ...formData,
+      changes: true,
+      [e.target.name]: e.target.value,
+    });
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,6 +46,7 @@ const GeneralInfo = () => {
     <main className="resumeCreator__content">
       <section className="resumeForms resumeForms--generalInfo">
         <InputField
+          type={'text'}
           name="name"
           value={formData.name}
           Icon={UserIcon}
@@ -44,6 +55,7 @@ const GeneralInfo = () => {
           onChange={onChange}
         />
         <InputField
+          type={'text'}
           name="profession"
           value={formData.profession}
           Icon={ProfessionIcon}
@@ -52,6 +64,7 @@ const GeneralInfo = () => {
           onChange={onChange}
         />
         <InputField
+          type={'text'}
           name="phone"
           value={formData.phone}
           Icon={PhoneIcon}
@@ -60,6 +73,7 @@ const GeneralInfo = () => {
           onChange={onChange}
         />
         <InputField
+          type={'text'}
           name="email"
           value={formData.email}
           Icon={EmailIcon}
@@ -68,6 +82,7 @@ const GeneralInfo = () => {
           onChange={onChange}
         />
         <InputField
+          type={'text'}
           name="website"
           value={formData.website}
           Icon={WebsiteIcon}
@@ -76,11 +91,29 @@ const GeneralInfo = () => {
           onChange={onChange}
         />
         <InputField
+          type={'file'}
+          name="photo"
+          Icon={PhotoIcon}
+          text="Twoje zdjęcie"
+          placeholder="photo"
+          onChange={onChange}
+        />
+        <InputField
+          type={'text'}
           name="address"
           value={formData.address}
           Icon={PinIcon}
           text="Adres"
           placeholder="adres"
+          onChange={onChange}
+        />
+        <InputField
+          type={'text'}
+          name="company"
+          value={formData.company}
+          Icon={CompanyIcon}
+          text="Nazwa firmy do klauzuli"
+          placeholder="Nazwa firmy do klauzuli"
           onChange={onChange}
         />
 
@@ -101,6 +134,12 @@ const GeneralInfo = () => {
         </div>
       </section>
       <div className="resumeCreator__content__btns">
+        <div className="resumeCreator__content__btns__info">
+          <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          <span className="resumeCreator__content__btns__info__text">
+            Przejdź dalej by zapisać zmiany
+          </span>
+        </div>
         <Button direction="next" link="education" text="Edukacja" />
       </div>
     </main>

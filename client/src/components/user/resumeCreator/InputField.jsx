@@ -1,8 +1,25 @@
 import React from 'react';
 
-const InputField = ({ name, value, Icon, text, placeholder, onChange }) => {
+const InputField = ({
+  type,
+  name,
+  value,
+  Icon,
+  text,
+  placeholder,
+  onChange,
+  halfLong = false,
+}) => {
   return (
-    <div className="resumeForms__field">
+    <div
+      className={
+        halfLong
+          ? 'resumeForms__field--halfLong'
+          : type === 'file'
+          ? 'resumeForms__field resumeForms__field--img'
+          : 'resumeForms__field'
+      }
+    >
       <Icon className="resumeForms__field__icon" />
       <span
         className={
@@ -12,11 +29,14 @@ const InputField = ({ name, value, Icon, text, placeholder, onChange }) => {
         {text}
       </span>
       <input
+        autoComplete="new-password"
+        type={`${type}`}
         name={name}
         value={value}
         placeholder={placeholder}
         className="input"
         onChange={(e) => onChange(e)}
+        accept="image/*"
       />
     </div>
   );

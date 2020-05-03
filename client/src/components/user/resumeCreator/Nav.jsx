@@ -33,13 +33,6 @@ const Nav = () => {
         Projekty
       </NavLink>
       <NavLink
-        to="/user/certificates"
-        className="resumeCreator__list__item"
-        activeClassName="isActive"
-      >
-        Certifikacje
-      </NavLink>
-      <NavLink
         to="/user/final"
         className="resumeCreator__list__item"
         activeClassName="isActive"

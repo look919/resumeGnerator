@@ -9,7 +9,7 @@
     rgba($color-grey-light-2, 1)
   );
   display: grid;
-  grid-template-rows: 10rem 1fr;
+  grid-template-rows: 8rem 1fr;
   align-items: center;
   justify-items: center;
 
@@ -18,7 +18,6 @@
     height: 100%;
     padding: 0 3rem;
     display: grid;
-    grid-template-rows: 4rem calc(100% - 4rem);
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 15rem;
     align-items: center;

@@ -7,7 +7,7 @@
   justify-items: center;
 
   &__list {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -28,19 +28,38 @@
 
     &__btns {
       width: 100%;
-
-      height: 100%;
+      height: 3rem;
       display: grid;
       grid-template-columns: 18rem 1fr 18rem;
       align-items: center;
+
       color: $color-grey-light-1;
       text-align: center;
 
+      &__info {
+        height: 100%;
+        grid-column: 2 / 3;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__icon {
+          height: 3rem;
+          width: 3rem;
+          fill: $color-dashboard-dark;
+          margin-right: 1rem;
+        }
+        &__text {
+          font-size: 1.2rem;
+          color: $color-black;
+        }
+      }
       &__btn {
         font-size: 1.4rem;
         padding: 0.4rem 1.4rem;
         width: 100%;
-        height: 100%;
+        height: 3rem;
         border: none;
         color: $color-grey-light-1;
 

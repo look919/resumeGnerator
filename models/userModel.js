@@ -32,40 +32,127 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
-  emailField: String,
-  name: String,
-  phone: String,
-  website: String,
-  address: String,
-  summary: String,
-  languages: [
-    {
-      lang: String,
-      level: Number,
-    },
-  ],
-  education: [
-    {
-      role: String,
-      school: String,
-      startDate: String,
-      endDate: String,
-    },
-  ],
-  skills: [
-    {
-      name: String,
-      img: String,
-    },
-  ],
-  projects: [
-    {
-      name: String,
-      url: String,
-      description: String,
-    },
-  ],
-  certification: [String],
+  //resume fields
+  //general
+  name: {
+    type: String,
+    default: 'CompanyName',
+  },
+  profession: {
+    type: String,
+    default: 'Full stack developer',
+  },
+  phone: {
+    type: String,
+    default: '+48 123 456 789',
+  },
+  emailField: {
+    type: String,
+    default: 'myEmail@email.com',
+  },
+  website: {
+    type: String,
+    default: 'www.myWebsite.com',
+  },
+  address: {
+    type: String,
+    default: 'Poland, Warsaw',
+  },
+  summary: {
+    type: String,
+    default:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id euismod est. Nunc et luctus magna. Sed pellentesque ut metus scelerisque mattis. Proin massa diam, mattis.',
+  },
+  company: {
+    type: String,
+    default: 'CompanyName',
+  },
+  photo: {
+    type: String,
+    default: 'default.jpg',
+  },
+  //education
+  languages: {
+    type: [
+      {
+        lang: String,
+        level: Number,
+      },
+    ],
+    default: [
+      { lang: 'English', level: 2 },
+      { lang: 'French', level: 1 },
+    ],
+  },
+  education: {
+    type: [
+      {
+        speciality: String,
+        school: String,
+        startDate: String,
+        endDate: String,
+      },
+    ],
+    default: [
+      {
+        speciality: 'Computer Sience',
+        school: 'University X',
+        startDate: '2016-10',
+        endDate: '2020-02',
+      },
+      {
+        speciality: 'IT specialisty',
+        school: 'High School Y',
+        startDate: '2012-09',
+        endDate: '2016-05',
+      },
+    ],
+  },
+  certification: {
+    type: [String],
+    default: ['Certificate X', 'Certificate Y'],
+  },
+  //skills
+  skills: {
+    type: [
+      {
+        name: String,
+        img: String,
+      },
+    ],
+    default: [],
+  },
+  //projects
+  projects: {
+    type: [
+      {
+        name: String,
+        url: String,
+        description: String,
+      },
+    ],
+    default: [
+      {
+        name: 'Project nr 1',
+        url: 'www.myproject.com',
+        description:
+          'Fusce vitae blandit velit, nec ultrices mauris. Donec nunc sem, ornare sit amet euismod sed, porttitor et purus. Nullam sollicitudin erat dui, vitae dapibus sem eleifend et.',
+      },
+      {
+        name: 'Project nr 2',
+        url: 'www.myproject.com',
+        description:
+          'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean tempus nibh ut commodo fermentum.',
+      },
+      {
+        name: 'Project nr 3',
+        url: 'www.myproject.com',
+        description:
+          'Etiam id gravida eros, sit amet porttitor ipsum. Ut magna nunc, aliquet eget mollis quis, fermentum sed turpis.',
+      },
+    ],
+  },
+
   createdAt: {
     type: Date,
     default: Date.now(),

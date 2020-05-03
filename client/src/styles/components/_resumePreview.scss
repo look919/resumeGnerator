@@ -18,7 +18,7 @@
   transition: all 1s;
 
   &:hover {
-    transform: translateY(-7rem) scale(1.45);
+    transform: translateY(-4rem) translateX(-2rem) scale(1.45);
   }
 
   &__heading {
@@ -148,12 +148,15 @@
             width: 25%;
           }
           &--2 {
-            width: 50%;
+            width: 45%;
           }
           &--3 {
             width: 75%;
           }
           &--4 {
+            width: 85%;
+          }
+          &--5 {
             width: 100%;
           }
 
