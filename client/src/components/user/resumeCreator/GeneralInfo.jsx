@@ -32,6 +32,9 @@ const GeneralInfo = () => {
       changes: true,
       [e.target.name]: e.target.value,
     });
+  const fileSelector = (e) => {
+    console.log(e.target.files[0]);
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -96,7 +99,7 @@ const GeneralInfo = () => {
           Icon={PhotoIcon}
           text="Twoje zdjęcie"
           placeholder="photo"
-          onChange={onChange}
+          onChange={fileSelector}
         />
         <InputField
           type={'text'}

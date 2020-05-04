@@ -10,7 +10,12 @@ router.get('/auth', authController.isLoggedIn);
 //USERS AUTHENTICATED
 router.use(authController.protect);
 router.post('/logout', authController.logout);
-router.patch('/updateme', userController.getMe, userController.updateMe);
+router.patch(
+  '/updateMe',
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
+  userController.updateMe
+);
 
 //RESTRICTED TO ADMIN
 router.use(authController.restrictTo('admin'));
