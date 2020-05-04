@@ -103,9 +103,27 @@ export const logout = () => async (dispatch) => {
     dispatch(setAlert(err.response.data.message, 'danger'));
   }
 };
-//update user
-export const updateUser = (name, email, phone, address) => async (dispatch) => {
-  const body = JSON.stringify({ name, email, address, phone });
+//update generalInfo
+export const generalInfoUpdate = ({
+  name,
+  profession,
+  phone,
+  emailField,
+  address,
+  website,
+  summary,
+  company,
+}) => async (dispatch) => {
+  const body = JSON.stringify({
+    name,
+    profession,
+    phone,
+    email: emailField,
+    address,
+    website,
+    summary,
+    company,
+  });
 
   const config = {
     headers: {
@@ -113,12 +131,12 @@ export const updateUser = (name, email, phone, address) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.patch('/api/v1/users/updateme', body, config);
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
     dispatch({
       type: UPDATE_USER_SUCCESS,
       payload: res.data.data.user,
     });
-    dispatch(setAlert('Data successfully updated', 'success'));
+    dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
     dispatch(setAlert(err.response.data.message, 'danger'));
     dispatch({

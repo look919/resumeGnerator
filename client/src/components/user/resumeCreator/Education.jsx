@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { generalInfoUpdate } from '../../../actions/auth';
 import InputField from './InputField';
-import Button from './Button';
 import {
   StarIcon,
   EducationIcon,
@@ -26,6 +30,7 @@ const Education = () => {
     languagesTwoLang: '',
     languagesTwoLevel: 1,
     changes: false,
+    direction: 'none',
   });
   const onChange = (e) =>
     setFormData({
@@ -38,6 +43,23 @@ const Education = () => {
   };
   const onSliderTwoChange = (e) =>
     setFormData({ ...formData, languagesTwoLevel: e });
+
+  const handleSaveDataAndRedirect = async (direction) => {
+    if (formData.changes) {
+      await generalInfoUpdate(formData);
+      await setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    }
+  };
+  if (formData.redirect === 'next') return <Redirect to={`/user/skills`} />;
+  if (formData.redirect === 'previous') return <Redirect to={`/user/main`} />;
 
   return (
     <div className="resumeCreator__content">
@@ -213,7 +235,12 @@ const Education = () => {
         />
       </section>
       <div className="resumeCreator__content__btns">
-        <Button direction="previous" link="main" text="Ogólne" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
+          onClick={() => handleSaveDataAndRedirect('previous')}
+        >
+          Ogólne
+        </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
@@ -221,10 +248,19 @@ const Education = () => {
             zawartość całej sekcji żeby się jej pozbyć
           </span>
         </div>
-        <Button direction="next" link="skills" text="Umiejętności" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
+          onClick={() => handleSaveDataAndRedirect('next')}
+        >
+          Umiejętności
+        </button>
       </div>
     </div>
   );
 };
 
-export default Education;
+Education.propTypes = {
+  generalInfoUpdate: PropTypes.func.isRequired,
+};
+
+export default connect(null, { generalInfoUpdate })(Education);

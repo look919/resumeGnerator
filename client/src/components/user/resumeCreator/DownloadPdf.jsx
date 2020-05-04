@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import jsPdf from 'jspdf';
 
@@ -32,7 +32,12 @@ const GeneralInfo = () => {
         </button>
       </section>
       <div className="resumeCreator__content__btns">
-        <Button direction="previous" link="projects" text="Projekty" />
+        <Link
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
+          to="/user/projects"
+        >
+          Projekty
+        </Link>
       </div>
     </div>
   );

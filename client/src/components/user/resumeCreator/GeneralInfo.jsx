@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import Button from './Button';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { generalInfoUpdate } from '../../../actions/auth';
 import InputField from './InputField';
 import {
   UserIcon,
@@ -14,7 +18,7 @@ import {
   InfoIcon,
 } from '../../layout/Icons';
 
-const GeneralInfo = () => {
+const GeneralInfo = ({ generalInfoUpdate }) => {
   const [formData, setFormData] = useState({
     name: '',
     profession: '',
@@ -24,27 +28,31 @@ const GeneralInfo = () => {
     website: '',
     company: '',
     changes: false,
+    redirect: 'none',
   });
-  const [photo, setPhoto] = useState(`${formData.name}-photo.png`);
   const onChange = (e) =>
     setFormData({
       ...formData,
       changes: true,
       [e.target.name]: e.target.value,
     });
-  const fileSelector = (e) => {
-    console.log(e.target.files[0]);
-  };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    //login(formData);
-    setFormData({
-      email: '',
-      password: '',
-    });
+  const handleSaveDataAndRedirect = async (direction) => {
+    if (formData.changes) {
+      await generalInfoUpdate(formData);
+      await setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    }
   };
+  if (formData.redirect === 'next') return <Redirect to={`/user/education`} />;
+
   return (
     <main className="resumeCreator__content">
       <section className="resumeForms resumeForms--generalInfo">
@@ -99,7 +107,6 @@ const GeneralInfo = () => {
           Icon={PhotoIcon}
           text="Twoje zdjęcie"
           placeholder="photo"
-          onChange={fileSelector}
         />
         <InputField
           type={'text'}
@@ -143,10 +150,19 @@ const GeneralInfo = () => {
             Przejdź dalej by zapisać zmiany
           </span>
         </div>
-        <Button direction="next" link="education" text="Edukacja" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
+          onClick={() => handleSaveDataAndRedirect('next')}
+        >
+          Edukacja
+        </button>
       </div>
     </main>
   );
 };
 
-export default GeneralInfo;
+GeneralInfo.propTypes = {
+  generalInfoUpdate: PropTypes.func.isRequired,
+};
+
+export default connect(null, { generalInfoUpdate })(GeneralInfo);

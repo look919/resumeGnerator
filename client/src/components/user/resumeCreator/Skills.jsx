@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import { generalInfoUpdate } from '../../../actions/auth';
 import { InfoIcon } from '../../layout/Icons';
 import * as Ic from '../../layout/BrandIcons';
-import Button from './Button';
 import Radio from './Radio';
 
 const Skills = () => {
@@ -43,6 +47,23 @@ const Skills = () => {
     });
   };
 
+  const handleSaveDataAndRedirect = async (direction) => {
+    if (formData.changes) {
+      await generalInfoUpdate(formData);
+      await setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    }
+  };
+  if (formData.redirect === 'next') return <Redirect to={`/user/projects`} />;
+  if (formData.redirect === 'previous')
+    return <Redirect to={`/user/education`} />;
   return (
     <div className="resumeCreator__content">
       <section className="resumeForms resumeForms--skills">
@@ -79,17 +100,31 @@ const Skills = () => {
         <Radio Icon={Ic.VueJsIcon} name="VueJs" onChange={onChange} />
       </section>
       <div className="resumeCreator__content__btns">
-        <Button direction="previous" link="education" text="Edukacja" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
+          onClick={() => handleSaveDataAndRedirect('previous')}
+        >
+          Edukacja
+        </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
             Optymalna ilość wybranych technologii dla tego designu wynosi 10
           </span>
         </div>
-        <Button direction="next" link="projects" text="Projekty" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
+          onClick={() => handleSaveDataAndRedirect('next')}
+        >
+          Projekty
+        </button>
       </div>
     </div>
   );
 };
 
-export default Skills;
+Skills.propTypes = {
+  generalInfoUpdate: PropTypes.func.isRequired,
+};
+
+export default connect(null, { generalInfoUpdate })(Skills);

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { generalInfoUpdate } from '../../../actions/auth';
+
 import InputField from './InputField';
-import Button from './Button';
 import { ProjectIcon, WebsiteIcon, InfoIcon } from '../../layout/Icons';
 
 const Projects = () => {
@@ -23,6 +27,23 @@ const Projects = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleSaveDataAndRedirect = async (direction) => {
+    if (formData.changes) {
+      await generalInfoUpdate(formData);
+      await setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        redirect: direction,
+      });
+    }
+  };
+  if (formData.redirect === 'next') return <Redirect to={`/user/final`} />;
+  if (formData.redirect === 'previous') return <Redirect to={`/user/skills`} />;
   return (
     <div className="resumeCreator__content">
       <section className="resumeForms resumeForms--projects">
@@ -107,7 +128,12 @@ const Projects = () => {
         </div>
       </section>
       <div className="resumeCreator__content__btns">
-        <Button direction="previous" link="skills" text="Umiejętności" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
+          onClick={() => handleSaveDataAndRedirect('previous')}
+        >
+          Umiejętności
+        </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
@@ -115,10 +141,19 @@ const Projects = () => {
             tekstu z każdym kolejnym.
           </span>
         </div>
-        <Button direction="next" link="final" text="Pobierz" />
+        <button
+          className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
+          onClick={() => handleSaveDataAndRedirect('next')}
+        >
+          Pobierz
+        </button>
       </div>
     </div>
   );
 };
 
-export default Projects;
+Projects.propTypes = {
+  generalInfoUpdate: PropTypes.func.isRequired,
+};
+
+export default connect(null, { generalInfoUpdate })(Projects);
