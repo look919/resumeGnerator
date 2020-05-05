@@ -1,85 +1,83 @@
 import React from 'react';
-import {
-  GitIcon,
-  HTMLIcon,
-  CSSIcon,
-  SassIcon,
-  JavaScriptIcon,
-  NodeJsIcon,
-  ReactIcon,
-  ReduxIcon,
-  MongoDBIcon,
-  HerokuIcon,
-} from '../../layout/BrandIcons';
-const Skills = () => {
+import * as Ic from '../../layout//BrandIcons';
+const Skills = ({ user }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
+
+  const renderSwitch = (skill) => {
+    switch (skill) {
+      case 'AWS':
+        return <Ic.AWSIcon />;
+      case 'Angular':
+        return <Ic.AngularIcon />;
+      case 'CSharp':
+        return <Ic.CSharpIcon />;
+      case 'CSS':
+        return <Ic.CSSIcon />;
+      case 'Django':
+        return <Ic.DjangoIcon />;
+      case 'DotNet':
+        return <Ic.DotNetIcon />;
+      case 'Git':
+        return <Ic.GitIcon />;
+      case 'Heroku':
+        return <Ic.HerokuIcon />;
+      case 'HTML':
+        return <Ic.HTMLIcon />;
+      case 'Laravel':
+        return <Ic.LaravelIcon />;
+      case 'Java':
+        return <Ic.JavaIcon />;
+      case 'Javascript':
+        return <Ic.JavaScriptIcon />;
+      case 'Linux':
+        return <Ic.LinuxIcon />;
+      case 'MongoDB':
+        return <Ic.MongoDBIcon />;
+      case 'MicrosoftAzure':
+        return <Ic.MicrosoftAzureIcon />;
+      case 'MySQL':
+        return <Ic.MySQLIcon />;
+      case 'Nginx':
+        return <Ic.NginxIcon />;
+      case 'NodeJs':
+        return <Ic.NodeJsIcon />;
+      case 'PHP':
+        return <Ic.PHPIcon />;
+      case 'Python':
+        return <Ic.PythonIcon />;
+      case 'Rails':
+        return <Ic.RailsIcon />;
+      case 'React':
+        return <Ic.ReactIcon />;
+      case 'Redux':
+        return <Ic.ReduxIcon />;
+      case 'Ruby':
+        return <Ic.RubyIcon />;
+      case 'Sass':
+        return <Ic.SassIcon />;
+      case 'Spring':
+        return <Ic.SpringIcon />;
+      case 'VueJs':
+        return <Ic.VueJsIcon />;
+      default:
+        return <Ic.HTMLIcon />;
+    }
+  };
+
   return (
     <div className="resumePreview__skills">
       <div className="heading-resume">
         <h3 className="resumePreview__heading">Skills</h3>
       </div>
       <div className="resumePreview__skills__content">
-        <div className="resumePreview__skills__content__item">
-          <GitIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            Git
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <HTMLIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            HTML
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <CSSIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            CSS
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <SassIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            Sass
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <JavaScriptIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            JS ES6+
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <NodeJsIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            Node.js
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <ReactIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            React
-          </span>
-        </div>
-        <div className="resumePreview__skills__content__item">
-          <ReduxIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            Redux
-          </span>
-        </div>
-
-        <div className="resumePreview__skills__content__item">
-          <MongoDBIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            MongoDB
-          </span>
-        </div>
-
-        <div className="resumePreview__skills__content__item">
-          <HerokuIcon />{' '}
-          <span className="resumePreview__skills__content__item__text">
-            Heroku
-          </span>
-        </div>
+        {user.skills.map((skill) => (
+          <div className="resumePreview__skills__content__item" key={skill}>
+            {renderSwitch(skill)}
+            <span className="resumePreview__skills__content__item__text">
+              {skill}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

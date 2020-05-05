@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
   //general
   name: {
     type: String,
-    default: 'CompanyName',
+    default: 'User name',
   },
   profession: {
     type: String,
@@ -101,7 +101,7 @@ const userSchema = new mongoose.Schema({
         endDate: '2020-02',
       },
       {
-        speciality: 'IT specialisty',
+        speciality: 'IT specialist',
         school: 'High School Y',
         startDate: '2012-09',
         endDate: '2016-05',

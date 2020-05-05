@@ -2,33 +2,32 @@ import React from 'react';
 
 import { PhoneIcon, EmailIcon, WebsiteIcon, PinIcon } from '../../layout/Icons';
 
-const ResumePreviewAboutMe = (props) => {
+const ResumePreviewAboutMe = ({ user }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
+
   return (
     <div className="resumePreview__about">
-      <h1 className="resumePreview__about__name">Tomasz Wirkus</h1>
+      <h1 className="resumePreview__about__name">{user.name}</h1>
       <h2 className="resumePreview__about__profession color--lightBlue">
-        MERN Stack Developer
+        {user.profession}
       </h2>
       <span className="resumePreview__about__data">
         <PhoneIcon className="resumePreview__about__data__icon color--lightBlue" />{' '}
-        +48 789 182 156
+        {user.phone}
       </span>
       <span className="resumePreview__about__data">
         <EmailIcon className="resumePreview__about__data__icon color--lightBlue" />{' '}
-        wirkus919@gmail.com
+        {user.emailField}
       </span>
       <span className="resumePreview__about__data">
         <WebsiteIcon className="resumePreview__about__data__icon color--lightBlue" />{' '}
-        <a
-          href="https://tomasz-wirkus.herokuapp.com/"
-          className="resumePreview__about__data--smaller"
-        >
-          tomasz-wirkus.herokuapp.com
+        <a href={user.website} className="resumePreview__about__data--smaller">
+          {user.website}
         </a>
       </span>
       <span className="resumePreview__about__data">
         <PinIcon className="resumePreview__about__data__icon color--lightBlue" />{' '}
-        Polska, Koszalin
+        {user.address}
       </span>
     </div>
   );

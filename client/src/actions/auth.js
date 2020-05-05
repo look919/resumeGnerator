@@ -116,7 +116,7 @@ export const generalInfoUpdate = ({
   company,
 }) => async (dispatch) => {
   const formData = new FormData();
-  formData.append('photo', photo);
+  if (photo) formData.append('photo', photo);
   formData.append('name', name);
   formData.append('profession', profession);
   formData.append('phone', phone);
@@ -188,7 +188,7 @@ export const educationUpdate = ({
         level: languagesTwoLevel,
       },
     ],
-    certificates: [certificateOne, certificateTwo],
+    certification: [certificateOne, certificateTwo],
   });
 
   const config = {

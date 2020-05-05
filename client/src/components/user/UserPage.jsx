@@ -7,7 +7,7 @@ import UserPageHeader from './UserPageHeader';
 import ResumeCreator from './resumeCreator/ResumeCreator';
 import ResumePreview from './resumePreview/ResumePreview';
 
-const UserPage = ({ auth, ...props }) => {
+const UserPage = ({ auth, user, ...props }) => {
   if (!auth) {
     return <Redirect to="/" />;
   }
@@ -17,7 +17,7 @@ const UserPage = ({ auth, ...props }) => {
       <UserPageHeader />
       <section className="userPage__content">
         <ResumeCreator form={props.match.params.form} />
-        <ResumePreview />
+        <ResumePreview user={user} />
       </section>
     </main>
   );
@@ -28,6 +28,7 @@ UserPage.propTypes = {
 };
 const mapStateToProps = (state) => ({
   auth: state.auth.isAuthenticated,
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps, {})(UserPage);

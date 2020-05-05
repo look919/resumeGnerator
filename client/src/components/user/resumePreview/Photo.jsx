@@ -1,11 +1,15 @@
 import React from 'react';
 
-import DefaultImg from '../../../img/default.jpg';
+const Photo = ({ user }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
 
-const Photo = () => {
   return (
     <div className="resumePreview__photo">
-      <img src={DefaultImg} alt="user" className="resumePreview__photo__img" />
+      <img
+        src={require(`../../../img/users/${user.photo}`)}
+        alt="user"
+        className="resumePreview__photo__img"
+      />
     </div>
   );
 };

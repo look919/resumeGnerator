@@ -1,0 +1,48 @@
+{
+  "name": "User name",
+  "profession": "Full stack developer",
+  "phone": "+48 123 456 789",
+  "emailField": "myEmail@email.com",
+  "website": "myWebsite.com",
+  "address": "Poland, Warsaw",
+  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id euismod est. Nunc et luctus magna. Sed pellentesque ut metus scelerisque mattis. Proin massa diam, mattis.",
+  "company": "companyName",
+  "photo": "default.jpg",
+  "languages": [
+    { "lang": "English", "level": 2 },
+    { "lang": "French", "level": 1 }
+  ],
+  "education": [
+    {
+      "speciality": "Computer Sience",
+      "school": "University X",
+      "startDate": "2016-10",
+      "endDate": "2020-02"
+    },
+    {
+      "speciality": "IT specialist",
+      "school": "High School Y",
+      "startDate": "2012-09",
+      "endDate": "2016-05"
+    }
+  ],
+  "skills": [],
+  "projects": [
+    {
+      "name": "Project nr 1",
+      "url": "www.myproject.com",
+      "description": "Vusce vitae blandit velit, nec ultrices mauris. Donec nunc sem, ornare sit amet euismod sed, porttitor et purus. Nullam sollicitudin erat dui, vitae dapibus sem eleifend et."
+    },
+    {
+      "name": "Project nr 2",
+      "url": "www.myproject.com",
+      "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean tempus nibh ut commodo fermentum."
+    },
+    {
+      "name": "Project nr 3",
+      "url": "www.myproject.com",
+      "description": "Etiam id gravida eros, sit amet porttitor ipsum. Ut magna nunc, aliquet eget mollis quis, fermentum sed turpis."
+    }
+  ],
+  "certification": ["Certificate X", "Certificate Y"]
+}
