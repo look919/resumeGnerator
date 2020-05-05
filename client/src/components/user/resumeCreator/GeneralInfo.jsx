@@ -22,6 +22,7 @@ const GeneralInfo = ({ generalInfoUpdate }) => {
   const [formData, setFormData] = useState({
     name: '',
     profession: '',
+    photo: '',
     phone: '',
     email: '',
     address: '',
@@ -36,6 +37,14 @@ const GeneralInfo = ({ generalInfoUpdate }) => {
       changes: true,
       [e.target.name]: e.target.value,
     });
+  const onFileChange = (e) => {
+    setFormData({
+      ...formData,
+      changes: true,
+      photo: e.target.files[0],
+    });
+    console.log(formData);
+  };
 
   const handleSaveDataAndRedirect = async (direction) => {
     if (formData.changes) {
@@ -107,6 +116,7 @@ const GeneralInfo = ({ generalInfoUpdate }) => {
           Icon={PhotoIcon}
           text="Twoje zdjęcie"
           placeholder="photo"
+          onChange={onFileChange}
         />
         <InputField
           type={'text'}

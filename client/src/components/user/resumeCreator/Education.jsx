@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { generalInfoUpdate } from '../../../actions/auth';
+import { educationUpdate } from '../../../actions/auth';
 import InputField from './InputField';
 import {
   StarIcon,
@@ -15,7 +15,7 @@ import {
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const Education = () => {
+const Education = ({ educationUpdate }) => {
   const [formData, setFormData] = useState({
     educationOneSpeciality: '',
     educationOneSchool: '',
@@ -29,9 +29,12 @@ const Education = () => {
     languagesOneLevel: 1,
     languagesTwoLang: '',
     languagesTwoLevel: 1,
+    certificateOne: '',
+    certificateTwo: '',
     changes: false,
     direction: 'none',
   });
+
   const onChange = (e) =>
     setFormData({
       ...formData,
@@ -46,7 +49,7 @@ const Education = () => {
 
   const handleSaveDataAndRedirect = async (direction) => {
     if (formData.changes) {
-      await generalInfoUpdate(formData);
+      await educationUpdate(formData);
       await setFormData({
         ...formData,
         redirect: direction,
@@ -260,7 +263,7 @@ const Education = () => {
 };
 
 Education.propTypes = {
-  generalInfoUpdate: PropTypes.func.isRequired,
+  educationUpdate: PropTypes.func.isRequired,
 };
 
-export default connect(null, { generalInfoUpdate })(Education);
+export default connect(null, { educationUpdate })(Education);

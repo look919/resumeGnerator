@@ -107,22 +107,164 @@ export const logout = () => async (dispatch) => {
 export const generalInfoUpdate = ({
   name,
   profession,
+  photo,
   phone,
-  emailField,
+  email,
   address,
   website,
   summary,
   company,
 }) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append('photo', photo);
+  formData.append('name', name);
+  formData.append('profession', profession);
+  formData.append('phone', phone);
+  formData.append('emailField', email);
+  formData.append('address', address);
+  formData.append('website', website);
+  formData.append('summary', summary);
+  formData.append('company', company);
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const res = await axios.patch('/api/v1/users/updateMe', formData, config);
+    dispatch({
+      type: UPDATE_USER_SUCCESS,
+      payload: res.data.data.user,
+    });
+    dispatch(setAlert('Data Saved', 'success'));
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch({
+      type: UPDATE_USER_FAIL,
+      payload: err.message,
+    });
+  }
+};
+
+export const educationUpdate = ({
+  educationOneSpeciality,
+  educationOneSchool,
+  educationOneStartDate,
+  educationOneEndDate,
+  educationTwoSpeciality,
+  educationTwoSchool,
+  educationTwoStartDate,
+  educationTwoEndDate,
+  languagesOneLang,
+  languagesOneLevel,
+  languagesTwoLang,
+  languagesTwoLevel,
+  certificateOne,
+  certificateTwo,
+}) => async (dispatch) => {
   const body = JSON.stringify({
-    name,
-    profession,
-    phone,
-    email: emailField,
-    address,
-    website,
-    summary,
-    company,
+    education: [
+      {
+        speciality: educationOneSpeciality,
+        school: educationOneSchool,
+        startDate: educationOneStartDate,
+        endDate: educationOneEndDate,
+      },
+      {
+        speciality: educationTwoSpeciality,
+        school: educationTwoSchool,
+        startDate: educationTwoStartDate,
+        endDate: educationTwoEndDate,
+      },
+    ],
+    languages: [
+      {
+        lang: languagesOneLang,
+        level: languagesOneLevel,
+      },
+      {
+        lang: languagesTwoLang,
+        level: languagesTwoLevel,
+      },
+    ],
+    certificates: [certificateOne, certificateTwo],
+  });
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
+    dispatch({
+      type: UPDATE_USER_SUCCESS,
+      payload: res.data.data.user,
+    });
+    dispatch(setAlert('Data Saved', 'success'));
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch({
+      type: UPDATE_USER_FAIL,
+      payload: err.message,
+    });
+  }
+};
+export const skillsUpdate = (data) => async (dispatch) => {
+  const body = JSON.stringify({
+    skills: data,
+  });
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
+    dispatch({
+      type: UPDATE_USER_SUCCESS,
+      payload: res.data.data.user,
+    });
+    dispatch(setAlert('Data Saved', 'success'));
+  } catch (err) {
+    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch({
+      type: UPDATE_USER_FAIL,
+      payload: err.message,
+    });
+  }
+};
+export const projectsUpdate = ({
+  projectOneName,
+  projectOneLink,
+  projectOneDesc,
+  projectTwoName,
+  projectTwoLink,
+  projectTwoDesc,
+  projectThreeName,
+  projectThreeLink,
+  projectThreeDesc,
+}) => async (dispatch) => {
+  const body = JSON.stringify({
+    projects: [
+      {
+        name: projectOneName,
+        url: projectOneLink,
+        description: projectOneDesc,
+      },
+      {
+        name: projectTwoName,
+        url: projectTwoLink,
+        description: projectTwoDesc,
+      },
+      {
+        name: projectThreeName,
+        url: projectThreeLink,
+        description: projectThreeDesc,
+      },
+    ],
   });
 
   const config = {

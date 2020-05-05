@@ -3,40 +3,41 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { generalInfoUpdate } from '../../../actions/auth';
+import { skillsUpdate } from '../../../actions/auth';
 import { InfoIcon } from '../../layout/Icons';
 import * as Ic from '../../layout/BrandIcons';
 import Radio from './Radio';
 
-const Skills = () => {
+const Skills = ({ skillsUpdate }) => {
+  //order of display destinated from formData order
   const [formData, setFormData] = useState({
-    AWS: false,
-    Angular: false,
-    CSharp: false,
-    CSS: false,
-    Django: false,
-    DotNet: false,
+    Linux: false,
     Git: false,
-    Heroku: false,
     HTML: false,
+    CSS: false,
+    Sass: false,
+    JavaScript: false,
+    NodeJs: false,
+    CSharp: false,
+    DotNet: false,
+    Python: false,
+    Django: false,
+    Ruby: false,
+    Rails: false,
+    PHP: false,
     Laravel: false,
     Java: false,
-    JavaScript: false,
-    Linux: false,
-    MongoDB: false,
-    MinecrosoftAzure: false,
-    MySQL: false,
-    Nginx: false,
-    NodeJs: false,
-    PHP: false,
-    Python: false,
-    Rails: false,
-    React: false,
-    Redux: false,
-    Ruby: false,
-    Sass: false,
     Spring: false,
     VueJs: false,
+    Angular: false,
+    React: false,
+    Redux: false,
+    MySQL: false,
+    MongoDB: false,
+    AWS: false,
+    MinecrosoftAzure: false,
+    Nginx: false,
+    Heroku: false,
     changes: false,
   });
   const onChange = (e) => {
@@ -46,10 +47,14 @@ const Skills = () => {
       [e.target.name]: e.target.checked,
     });
   };
+  const data = [];
+  Object.entries(formData).forEach(([key, val]) => {
+    if (val && key !== 'changes') data.push(key);
+  });
 
   const handleSaveDataAndRedirect = async (direction) => {
     if (formData.changes) {
-      await generalInfoUpdate(formData);
+      await skillsUpdate(data);
       await setFormData({
         ...formData,
         redirect: direction,
@@ -124,7 +129,7 @@ const Skills = () => {
 };
 
 Skills.propTypes = {
-  generalInfoUpdate: PropTypes.func.isRequired,
+  skillsUpdate: PropTypes.func.isRequired,
 };
 
-export default connect(null, { generalInfoUpdate })(Skills);
+export default connect(null, { skillsUpdate })(Skills);

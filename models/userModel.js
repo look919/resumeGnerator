@@ -114,12 +114,7 @@ const userSchema = new mongoose.Schema({
   },
   //skills
   skills: {
-    type: [
-      {
-        name: String,
-        img: String,
-      },
-    ],
+    type: [String],
     default: [],
   },
   //projects

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { generalInfoUpdate } from '../../../actions/auth';
+import { projectsUpdate } from '../../../actions/auth';
 
 import InputField from './InputField';
 import { ProjectIcon, WebsiteIcon, InfoIcon } from '../../layout/Icons';
 
-const Projects = () => {
+const Projects = ({ projectsUpdate }) => {
   const [formData, setFormData] = useState({
     projectOneName: '',
     projectOneLink: '',
@@ -30,7 +30,7 @@ const Projects = () => {
 
   const handleSaveDataAndRedirect = async (direction) => {
     if (formData.changes) {
-      await generalInfoUpdate(formData);
+      await projectsUpdate(formData);
       await setFormData({
         ...formData,
         redirect: direction,
@@ -153,7 +153,7 @@ const Projects = () => {
 };
 
 Projects.propTypes = {
-  generalInfoUpdate: PropTypes.func.isRequired,
+  projectsUpdate: PropTypes.func.isRequired,
 };
 
-export default connect(null, { generalInfoUpdate })(Projects);
+export default connect(null, { projectsUpdate })(Projects);
