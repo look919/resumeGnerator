@@ -2,46 +2,53 @@
   font-family: $font-primary;
   font-weight: 300;
   line-height: 1;
-  color: $color-primary-dark;
   letter-spacing: 1px;
   margin: 0;
 }
 a {
   text-decoration: none;
-  color: $color-black;
 
+  &:link,
   &:visited {
-    color: $color-black;
+    color: inherit;
   }
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
-
 ul {
   list-style-type: none;
+}
+input {
+  &:focus {
+    outline: none;
+  }
 }
 body {
   font-family: $font-primary;
   font-weight: 400;
-  font-size: 1.8rem;
-  line-height: 1.8;
+  font-size: 1.6rem;
+  line-height: 1.6;
   color: $color-black;
-  background-color: $color-background;
 }
 
-.heading-1 {
+.heading-resume {
   @extend %heading;
-  font-size: 7rem;
+  font-weight: 600;
+  border-bottom: 1.5px solid $color-black;
+  padding-bottom: 1px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-transform: uppercase;
 }
 
 .heading-2 {
   @extend %heading;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .heading-3 {
   @extend %heading;
-  font-size: 3rem;
+  font-size: 2.4rem;
 
   @media only screen and (max-width: $bp-1600) {
     font-size: 2.8rem;
@@ -55,8 +62,7 @@ body {
 }
 .heading-4 {
   @extend %heading;
-  font-size: 1.8rem;
-  font-style: italic;
+  font-size: 1.6rem;
 
   @media only screen and (max-width: $bp-1200) {
     font-size: 1.4rem;
@@ -107,16 +113,20 @@ body {
 }
 
 .isActive {
-  color: $color-primary !important;
   font-weight: 600;
+}
 
-  &--2 {
-    color: $color-primary-dark !important;
+button {
+  cursor: pointer;
+  transition: all 0.2s;
+  &:active {
+    outline: none;
+    transform: translateY(0.2rem);
   }
 }
 ::placeholder {
-  color: $color-grey-dark-2;
-  font-size: 1.6rem;
+  color: $color-grey-light-2;
+  font-size: 1.2rem;
 }
 
 input[type='time']::-webkit-clear-button {
@@ -127,7 +137,9 @@ input[type='time']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+input[type='month']::-webkit-clear-button {
+  display: none;
+}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -138,4 +150,13 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  animation-delay: 1s;
+  -webkit-animation-name: autofill;
+  animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }

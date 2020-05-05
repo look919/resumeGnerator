@@ -4,30 +4,12 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please provide a name'],
-  },
-  address: {
-    type: Object,
-    default: {
-      country: 'Poland',
-      town: '',
-      postCode: '',
-      street: '',
-    },
-  },
   email: {
     type: String,
     required: [true, 'Please provide your email'],
     unique: [true, 'This email is already taken'],
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
-  },
-  phone: {
-    type: String,
-    required: [true, 'Please provide your phone number'],
-    validate: [validator.isMobilePhone, 'Please provide a valid phone nr'],
   },
   role: {
     type: String,
@@ -50,6 +32,122 @@ const userSchema = new mongoose.Schema({
       message: 'Passwords are not the same',
     },
   },
+  //resume fields
+  //general
+  name: {
+    type: String,
+    default: 'User name',
+  },
+  profession: {
+    type: String,
+    default: 'Full stack developer',
+  },
+  phone: {
+    type: String,
+    default: '+48 123 456 789',
+  },
+  emailField: {
+    type: String,
+    default: 'myEmail@email.com',
+  },
+  website: {
+    type: String,
+    default: 'www.myWebsite.com',
+  },
+  address: {
+    type: String,
+    default: 'Poland, Warsaw',
+  },
+  summary: {
+    type: String,
+    default:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id euismod est. Nunc et luctus magna. Sed pellentesque ut metus scelerisque mattis. Proin massa diam, mattis.',
+  },
+  company: {
+    type: String,
+    default: 'CompanyName',
+  },
+  photo: {
+    type: String,
+    default: 'default.jpg',
+  },
+  //education
+  languages: {
+    type: [
+      {
+        lang: String,
+        level: Number,
+      },
+    ],
+    default: [
+      { lang: 'English', level: 2 },
+      { lang: 'French', level: 1 },
+    ],
+  },
+  education: {
+    type: [
+      {
+        speciality: String,
+        school: String,
+        startDate: String,
+        endDate: String,
+      },
+    ],
+    default: [
+      {
+        speciality: 'Computer Sience',
+        school: 'University X',
+        startDate: '2016-10',
+        endDate: '2020-02',
+      },
+      {
+        speciality: 'IT specialist',
+        school: 'High School Y',
+        startDate: '2012-09',
+        endDate: '2016-05',
+      },
+    ],
+  },
+  certification: {
+    type: [String],
+    default: ['Certificate X', 'Certificate Y'],
+  },
+  //skills
+  skills: {
+    type: [String],
+    default: [],
+  },
+  //projects
+  projects: {
+    type: [
+      {
+        name: String,
+        url: String,
+        description: String,
+      },
+    ],
+    default: [
+      {
+        name: 'Project nr 1',
+        url: 'www.myproject.com',
+        description:
+          'Fusce vitae blandit velit, nec ultrices mauris. Donec nunc sem, ornare sit amet euismod sed, porttitor et purus. Nullam sollicitudin erat dui, vitae dapibus sem eleifend et.',
+      },
+      {
+        name: 'Project nr 2',
+        url: 'www.myproject.com',
+        description:
+          'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean tempus nibh ut commodo fermentum.',
+      },
+      {
+        name: 'Project nr 3',
+        url: 'www.myproject.com',
+        description:
+          'Etiam id gravida eros, sit amet porttitor ipsum. Ut magna nunc, aliquet eget mollis quis, fermentum sed turpis.',
+      },
+    ],
+  },
+
   createdAt: {
     type: Date,
     default: Date.now(),
@@ -76,22 +174,12 @@ userSchema.pre('save', function (next) {
   next();
 });
 
-userSchema.pre(/^find/, async function (next) {
-  // this.findOne().populate({
-  //   path: 'orders',
-  //   select: 'price user items',
-  // });
-
-  next();
-});
-
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
-
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
@@ -100,10 +188,8 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
     );
     return JWTTimestamp < changedTimestamp;
   }
-
   return false;
 };
-
 userSchema.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString('hex');
   this.passwordResetToken = crypto

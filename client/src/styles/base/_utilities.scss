@@ -1,0 +1,25 @@
+.color {
+  &--lightBlue {
+    color: $color-lightBlue !important;
+    fill: $color-lightBlue !important;
+    background-color: $color-lightBlue;
+  }
+  &--red {
+    //color: $color-resume-red !important;
+  }
+  &--darkBlue {
+    color: $color-darkBlue !important;
+    fill: $color-darkBlue !important;
+    background-color: $color-darkBlue;
+  }
+  &--green {
+    color: $color-green !important;
+    fill: $color-green !important;
+    background-color: $color-green;
+  }
+  &--red {
+    color: $color-red !important;
+    fill: $color-red !important;
+    background-color: $color-red;
+  }
+}

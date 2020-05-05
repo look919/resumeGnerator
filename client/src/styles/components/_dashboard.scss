@@ -1,0 +1,125 @@
+.dashboard {
+  &__logo {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  &__btn {
+    height: 3rem;
+    width: 4rem;
+    grid-row: 2 / 3;
+    cursor: pointer;
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+    &--en {
+      grid-column: 1 / 2;
+      justify-self: end;
+    }
+    &--pl {
+      grid-column: 2 / 3;
+      justify-self: start;
+    }
+  }
+  &__info {
+    grid-row: 3 / 4;
+    grid-column: 1 / -1;
+
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  &__boxes {
+    grid-row: 4 / 5;
+    grid-column: 1 / -1;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__box {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 2rem 0;
+    color: $color-grey-light-1;
+    text-align: center;
+    cursor: pointer;
+
+    &--login {
+      background-color: $color-dashboard-light;
+    }
+    &--register {
+      background-color: $color-dashboard-dark;
+    }
+
+    &__icon {
+      height: 6rem;
+      width: 6rem;
+      fill: $color-white;
+      margin-bottom: 1.5rem;
+    }
+    &__span {
+      align-self: flex-end;
+    }
+  }
+  &__footer {
+    text-align: center;
+    grid-row: 5 / 6;
+    grid-column: 1 / -1;
+  }
+}
+
+.login,
+.register {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-rows: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+
+  &__heading {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-weight: 600;
+  }
+  &__input {
+    grid-column: 1 / -1;
+    width: 25rem;
+
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.4rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+  &__btn {
+    grid-column: 2 / 3;
+    width: 100%;
+    height: 100%;
+
+    color: $color-white;
+    font-size: 1.2rem;
+    padding: 0.4rem 2rem;
+    border: none;
+    background-image: linear-gradient(
+      to right,
+      rgba($color-dashboard-light, 1),
+      rgba($color-dashboard-dark, 1)
+    );
+  }
+
+  &__redirect {
+    justify-self: start;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 3px;
+  }
+}

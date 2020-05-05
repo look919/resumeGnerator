@@ -10,14 +10,8 @@ import {
   AUTH_SUCCESS,
   AUTH_FAIL,
   LOGOUT,
-  UPDATE_PASSWORD_SUCCESS,
-  UPDATE_PASSWORD_FAIL,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAIL,
-  FORGOT_PASSWORD_SUCCESS,
-  FORGOT_PASSWORD_FAIL,
-  RESET_PASSWORD_SUCCESS,
-  RESET_PASSWORD_FAIL,
 } from './types';
 
 // Load User
@@ -42,19 +36,13 @@ export const loadUser = () => async (dispatch) => {
 };
 
 //register User
-export const register = (
-  name,
-  email,
-  password,
-  passwordConfirm,
-  phone
-) => async (dispatch) => {
+export const register = ({ email, password, passwordConfirm }) => async (
+  dispatch
+) => {
   const body = JSON.stringify({
-    name,
     email,
     password,
     passwordConfirm,
-    phone,
   });
 
   const config = {
@@ -115,9 +103,28 @@ export const logout = () => async (dispatch) => {
     dispatch(setAlert(err.response.data.message, 'danger'));
   }
 };
-//update user
-export const updateUser = (name, email, phone, address) => async (dispatch) => {
-  const body = JSON.stringify({ name, email, address, phone });
+//update generalInfo
+export const generalInfoUpdate = ({
+  name,
+  profession,
+  photo,
+  phone,
+  email,
+  address,
+  website,
+  summary,
+  company,
+}) => async (dispatch) => {
+  const formData = new FormData();
+  if (photo) formData.append('photo', photo);
+  formData.append('name', name);
+  formData.append('profession', profession);
+  formData.append('phone', phone);
+  formData.append('emailField', email);
+  formData.append('address', address);
+  formData.append('website', website);
+  formData.append('summary', summary);
+  formData.append('company', company);
 
   const config = {
     headers: {
@@ -125,12 +132,12 @@ export const updateUser = (name, email, phone, address) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.patch('/api/v1/users/updateme', body, config);
+    const res = await axios.patch('/api/v1/users/updateMe', formData, config);
     dispatch({
       type: UPDATE_USER_SUCCESS,
       payload: res.data.data.user,
     });
-    dispatch(setAlert('Data successfully updated', 'success'));
+    dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
     dispatch(setAlert(err.response.data.message, 'danger'));
     dispatch({
@@ -139,8 +146,50 @@ export const updateUser = (name, email, phone, address) => async (dispatch) => {
     });
   }
 };
-export const updateUserOrders = (orders) => async (dispatch) => {
-  const body = JSON.stringify({ orders });
+
+export const educationUpdate = ({
+  educationOneSpeciality,
+  educationOneSchool,
+  educationOneStartDate,
+  educationOneEndDate,
+  educationTwoSpeciality,
+  educationTwoSchool,
+  educationTwoStartDate,
+  educationTwoEndDate,
+  languagesOneLang,
+  languagesOneLevel,
+  languagesTwoLang,
+  languagesTwoLevel,
+  certificateOne,
+  certificateTwo,
+}) => async (dispatch) => {
+  const body = JSON.stringify({
+    education: [
+      {
+        speciality: educationOneSpeciality,
+        school: educationOneSchool,
+        startDate: educationOneStartDate,
+        endDate: educationOneEndDate,
+      },
+      {
+        speciality: educationTwoSpeciality,
+        school: educationTwoSchool,
+        startDate: educationTwoStartDate,
+        endDate: educationTwoEndDate,
+      },
+    ],
+    languages: [
+      {
+        lang: languagesOneLang,
+        level: languagesOneLevel,
+      },
+      {
+        lang: languagesTwoLang,
+        level: languagesTwoLevel,
+      },
+    ],
+    certification: [certificateOne, certificateTwo],
+  });
 
   const config = {
     headers: {
@@ -148,23 +197,24 @@ export const updateUserOrders = (orders) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.patch('/api/v1/users/updateme', body, config);
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
     dispatch({
       type: UPDATE_USER_SUCCESS,
       payload: res.data.data.user,
     });
-    dispatch(setAlert('Order successfully created', 'success'));
-    localStorage.removeItem('cart');
+    dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
-    dispatch(setAlert('There was a problem with your order', 'danger'));
+    dispatch(setAlert(err.response.data.message, 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,
     });
   }
 };
-export const forgotPassword = (email) => async (dispatch) => {
-  const body = JSON.stringify({ email });
+export const skillsUpdate = (data) => async (dispatch) => {
+  const body = JSON.stringify({
+    skills: data,
+  });
 
   const config = {
     headers: {
@@ -172,56 +222,50 @@ export const forgotPassword = (email) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.post('/api/v1/users/forgotPassword', body, config);
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
     dispatch({
-      type: FORGOT_PASSWORD_SUCCESS,
-      payload: res.data,
+      type: UPDATE_USER_SUCCESS,
+      payload: res.data.data.user,
     });
-    dispatch(setAlert('We send you a reset token on email', 'success'));
+    dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
     dispatch(setAlert(err.response.data.message, 'danger'));
     dispatch({
-      type: FORGOT_PASSWORD_FAIL,
+      type: UPDATE_USER_FAIL,
       payload: err.message,
     });
   }
 };
-export const resetPassword = (password, passwordConfirm, token) => async (
-  dispatch
-) => {
-  const body = JSON.stringify({ password, passwordConfirm });
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  try {
-    const res = await axios.patch(
-      `/api/v1/users/resetPassword/${token}`,
-      body,
-      config
-    );
-    dispatch({
-      type: RESET_PASSWORD_SUCCESS,
-      payload: res.data.data,
-    });
-    dispatch(setAlert('Password successfully changed', 'success'));
-  } catch (err) {
-    dispatch(setAlert(err.response.data.message, 'danger'));
-    dispatch({
-      type: RESET_PASSWORD_FAIL,
-      payload: err.message,
-    });
-  }
-};
-//TODO:
-//updatePassword
-export const updatePassword = (
-  currentPassword,
-  password,
-  passwordConfirm
-) => async (dispatch) => {
-  const body = JSON.stringify({ currentPassword, password, passwordConfirm });
+export const projectsUpdate = ({
+  projectOneName,
+  projectOneLink,
+  projectOneDesc,
+  projectTwoName,
+  projectTwoLink,
+  projectTwoDesc,
+  projectThreeName,
+  projectThreeLink,
+  projectThreeDesc,
+}) => async (dispatch) => {
+  const body = JSON.stringify({
+    projects: [
+      {
+        name: projectOneName,
+        url: projectOneLink,
+        description: projectOneDesc,
+      },
+      {
+        name: projectTwoName,
+        url: projectTwoLink,
+        description: projectTwoDesc,
+      },
+      {
+        name: projectThreeName,
+        url: projectThreeLink,
+        description: projectThreeDesc,
+      },
+    ],
+  });
 
   const config = {
     headers: {
@@ -229,16 +273,16 @@ export const updatePassword = (
     },
   };
   try {
-    const res = await axios.patch('/api/v1/users/updatepassword', body, config);
+    const res = await axios.patch('/api/v1/users/updateMe', body, config);
     dispatch({
-      type: UPDATE_PASSWORD_SUCCESS,
-      payload: res.data.data,
+      type: UPDATE_USER_SUCCESS,
+      payload: res.data.data.user,
     });
-    dispatch(setAlert('Password changed successfully', 'success'));
+    dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
     dispatch(setAlert(err.response.data.message, 'danger'));
     dispatch({
-      type: UPDATE_PASSWORD_FAIL,
+      type: UPDATE_USER_FAIL,
       payload: err.message,
     });
   }

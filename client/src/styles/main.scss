@@ -4,3 +4,13 @@
 @import './base/base';
 @import './base/typography';
 @import './base/utilities';
+
+@import './components/dashboard';
+@import './components/userPage';
+@import './components/resumeCreator';
+@import './components/resumePreview';
+@import './components/resumeForms';
+@import './components/input';
+@import './components/radio';
+
+@import './layout/header';

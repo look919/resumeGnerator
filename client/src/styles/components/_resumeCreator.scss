@@ -1,0 +1,100 @@
+.resumeCreator {
+  width: 100%;
+  height: 44.55rem;
+  display: grid;
+  grid-template-rows: 3rem 1fr;
+  align-items: center;
+  justify-items: center;
+
+  &__list {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__item {
+      cursor: none;
+      pointer-events: none;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 3rem;
+    align-items: center;
+    justify-items: center;
+
+    &__btns {
+      width: 100%;
+      height: 3rem;
+      display: grid;
+      grid-template-columns: 18rem 1fr 18rem;
+      align-items: center;
+
+      color: $color-grey-light-1;
+      text-align: center;
+
+      &__info {
+        height: 100%;
+        grid-column: 2 / 3;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__icon {
+          height: 3rem;
+          width: 3rem;
+          fill: $color-dashboard-dark;
+          margin-right: 1rem;
+        }
+        &__text {
+          font-size: 1.2rem;
+          color: $color-black;
+        }
+      }
+      &__btn {
+        font-size: 1.4rem;
+        padding: 0.4rem 1.4rem;
+        width: 100%;
+        height: 3rem;
+        border: none;
+        color: $color-grey-light-1;
+
+        background-image: linear-gradient(
+          to right,
+          rgba($color-dashboard-light, 1),
+          rgba($color-dashboard-dark, 1)
+        );
+
+        &--previous {
+          grid-column: 1 / 2;
+
+          background-color: $color-dashboard-light;
+          clip-path: polygon(
+            100% 0%,
+            75% 50%,
+            100% 100%,
+            25% 100%,
+            0% 50%,
+            25% 0%
+          );
+        }
+        &--next {
+          grid-column: 3 / 4;
+          background-color: $color-dashboard-dark;
+          clip-path: polygon(
+            75% 0%,
+            100% 50%,
+            75% 100%,
+            0% 100%,
+            25% 50%,
+            0% 0%
+          );
+        }
+      }
+    }
+  }
+}
