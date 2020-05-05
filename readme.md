@@ -1,19 +1,21 @@
-NODE_ENV=development
-PORT=5000
-DATABASE=
-DATABASE_PASSWORD=
+## ResumeGenerator
 
-JWT_SECRET=
-JWT_EXPIRES_IN=10d
-JWT_COOKIE_EXPIRES_IN=10
+This project is not online just yet
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-EMAIL_USERNAME=
-EMAIL_PASSWORD=
-EMAIL_HOST=
-EMAIL_PORT=
-EMAIL_FROM=
+Web application to create basic resume for junior web developers without commercial experience but with their own projects.
 
-SENGRID_USERNAME=
-SENDGRID_PASSWORD=
+#### Running
 
-STRIPE_SECRET_KEY=
+##### `yarn start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+#### Things I learned during that project
+
+Things I learned during that project:
+
+- html2canvas
+- jsPDF
+- multer&sharp
