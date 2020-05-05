@@ -15,22 +15,24 @@ import {
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const Education = ({ educationUpdate }) => {
+const Education = ({ user, educationUpdate }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
+
   const [formData, setFormData] = useState({
-    educationOneSpeciality: '',
-    educationOneSchool: '',
-    educationOneStartDate: '2020-04',
-    educationOneEndDate: '2020-04',
-    educationTwoSpeciality: '',
-    educationTwoSchool: '',
-    educationTwoStartDate: '2020-04',
-    educationTwoEndDate: '2020-04',
-    languagesOneLang: '',
-    languagesOneLevel: 1,
-    languagesTwoLang: '',
-    languagesTwoLevel: 1,
-    certificateOne: '',
-    certificateTwo: '',
+    educationOneSpeciality: user.education[0].speciality,
+    educationOneSchool: user.education[0].school,
+    educationOneStartDate: user.education[0].startDate,
+    educationOneEndDate: user.education[0].endDate,
+    educationTwoSpeciality: user.education[1].speciality,
+    educationTwoSchool: user.education[1].school,
+    educationTwoStartDate: user.education[1].startDate,
+    educationTwoEndDate: user.education[1].endDate,
+    languagesOneLang: user.languages[0].lang,
+    languagesOneLevel: user.languages[0].level,
+    languagesTwoLang: user.languages[1].lang,
+    languagesTwoLevel: user.languages[1].level,
+    certificateOne: user.certification[0],
+    certificateTwo: user.certification[1],
     changes: false,
     direction: 'none',
   });

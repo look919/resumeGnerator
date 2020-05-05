@@ -7,17 +7,19 @@ import { projectsUpdate } from '../../../actions/auth';
 import InputField from './InputField';
 import { ProjectIcon, WebsiteIcon, InfoIcon } from '../../layout/Icons';
 
-const Projects = ({ projectsUpdate }) => {
+const Projects = ({ user, projectsUpdate }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
+
   const [formData, setFormData] = useState({
-    projectOneName: '',
-    projectOneLink: '',
-    projectOneDesc: '',
-    projectTwoName: '',
-    projectTwoLink: '',
-    projectTwoDesc: '',
-    projectThreeName: '',
-    projectThreeLink: '',
-    projectThreeDesc: '',
+    projectOneName: user.projects[0].name,
+    projectOneLink: user.projects[0].url,
+    projectOneDesc: user.projects[0].description,
+    projectTwoName: user.projects[1].name,
+    projectTwoLink: user.projects[1].url,
+    projectTwoDesc: user.projects[1].description,
+    projectThreeName: user.projects[2].name,
+    projectThreeLink: user.projects[2].url,
+    projectThreeDesc: user.projects[2].description,
     changes: false,
   });
   const onChange = (e) => {

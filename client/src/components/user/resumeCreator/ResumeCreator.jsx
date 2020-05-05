@@ -6,18 +6,18 @@ import Skills from './Skills';
 import Projects from './Projects';
 import DownloadPdf from './DownloadPdf';
 
-export const ResumeCreator = ({ form }) => {
+export const ResumeCreator = ({ form, user }) => {
   return (
     <div className="resumeCreator">
       <Nav />
       {form === 'main' ? (
-        <GeneralInfo />
+        <GeneralInfo user={user} />
       ) : form === 'education' ? (
-        <Education />
+        <Education user={user} />
       ) : form === 'skills' ? (
-        <Skills />
+        <Skills user={user} />
       ) : form === 'projects' ? (
-        <Projects />
+        <Projects user={user} />
       ) : form === 'final' ? (
         <DownloadPdf />
       ) : (

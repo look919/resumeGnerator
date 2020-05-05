@@ -18,16 +18,19 @@ import {
   InfoIcon,
 } from '../../layout/Icons';
 
-const GeneralInfo = ({ generalInfoUpdate }) => {
+const GeneralInfo = ({ user, generalInfoUpdate }) => {
+  if (!user) user = require('../../../utils/defaultUser.json');
+
   const [formData, setFormData] = useState({
-    name: '',
-    profession: '',
-    photo: '',
-    phone: '',
-    email: '',
-    address: '',
-    website: '',
-    company: '',
+    name: user.name,
+    profession: user.profession,
+    photo: user.photo,
+    phone: user.phone,
+    email: user.emailField,
+    address: user.address,
+    website: user.website,
+    company: user.company,
+    summary: user.summary,
     changes: false,
     redirect: 'none',
   });

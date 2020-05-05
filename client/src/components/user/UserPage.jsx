@@ -16,7 +16,7 @@ const UserPage = ({ auth, user, ...props }) => {
     <main className="userPage">
       <UserPageHeader />
       <section className="userPage__content">
-        <ResumeCreator form={props.match.params.form} />
+        <ResumeCreator form={props.match.params.form} user={user} />
         <ResumePreview user={user} />
       </section>
     </main>
