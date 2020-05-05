@@ -18,7 +18,10 @@ const DashboardPage = ({ auth, login, register }) => {
     password: '',
     passwordConfirm: '',
   });
-
+  const onRedirect = (e) => {
+    e.preventDefault();
+    setPage('register');
+  };
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -96,7 +99,7 @@ const DashboardPage = ({ auth, login, register }) => {
       {page === 'dashboard' ? (
         <DashboardPage />
       ) : page === 'login' ? (
-        <div className="login">
+        <form className="login">
           <h4 className="heading-4 login__heading">Zaloguj się</h4>
           <input
             className="login__input"
@@ -115,20 +118,16 @@ const DashboardPage = ({ auth, login, register }) => {
             placeholder="password"
             onChange={(e) => onChange(e)}
           />
-          <button
-            onClick={() => setPage('register')}
-            className="login__redirect"
-          >
-            Register &rarr;
-          </button>
           <button onClick={(e) => onLogin(e)} className="login__btn">
             Login
           </button>
-        </div>
-      ) : (
-        <div className="register">
+          <button onClick={(e) => onRedirect(e)} className="login__redirect">
+            Register &rarr;
+          </button>
+        </form>
+      ) : page === 'register' ? (
+        <form className="register">
           <h4 className="heading-4 register__heading">Zarejestruj się</h4>
-
           <input
             className="register__input"
             name="email"
@@ -152,13 +151,23 @@ const DashboardPage = ({ auth, login, register }) => {
             placeholder="password confirm"
             onChange={(e) => onChange(e)}
           />
-          <button onClick={() => setPage('login')} className="login__redirect">
-            Login &rarr;
-          </button>
-          <button onClick={(e) => onRegister(e)} className="login__btn">
+          <button
+            onClick={(e) => onRegister(e)}
+            className="login__btn"
+            tabIndex="1"
+          >
             Register
           </button>
-        </div>
+          <button
+            onClick={() => setPage('login')}
+            className="login__redirect register__btn__redirect"
+            tabIndex="0"
+          >
+            Login &rarr;
+          </button>
+        </form>
+      ) : (
+        <DashboardPage />
       )}
 
       <div className="dashboard__footer">

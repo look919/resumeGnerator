@@ -246,14 +246,11 @@
   &__certificates {
     grid-row: 5 / 6;
     grid-column: 2/ 3;
-    align-self: end;
 
     margin-bottom: 0.8rem;
 
     &__content {
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
       flex-direction: column;
       margin-bottom: 3px;
 

@@ -44,7 +44,7 @@ const Education = ({ user, educationUpdate }) => {
       [e.target.name]: e.target.value,
     });
   const onSliderOneChange = (e) => {
-    setFormData({ ...formData, languagesOneLevel: e });
+    setFormData({ ...formData, changes: true, languagesOneLevel: e });
   };
   const onSliderTwoChange = (e) =>
     setFormData({ ...formData, languagesTwoLevel: e });

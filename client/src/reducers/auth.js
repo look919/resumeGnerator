@@ -49,6 +49,7 @@ export default function (state = initialState, action) {
         user: payload,
         isAuthenticated: true,
       };
+    case UPDATE_USER_FAIL:
     case REGISTER_FAIL:
     default:
       return state;

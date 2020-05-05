@@ -139,7 +139,7 @@ export const generalInfoUpdate = ({
     });
     dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
-    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch(setAlert('Data could not be saved', 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,
@@ -204,7 +204,7 @@ export const educationUpdate = ({
     });
     dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
-    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch(setAlert('Data could not be saved', 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,
@@ -229,7 +229,7 @@ export const skillsUpdate = (data) => async (dispatch) => {
     });
     dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
-    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch(setAlert('Data could not be saved', 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,
@@ -280,7 +280,7 @@ export const projectsUpdate = ({
     });
     dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
-    dispatch(setAlert(err.response.data.message, 'danger'));
+    dispatch(setAlert('Data could not be saved', 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,

@@ -27,7 +27,7 @@ const Skills = ({ user }) => {
         return <Ic.LaravelIcon />;
       case 'Java':
         return <Ic.JavaIcon />;
-      case 'Javascript':
+      case 'JavaScript':
         return <Ic.JavaScriptIcon />;
       case 'Linux':
         return <Ic.LinuxIcon />;
