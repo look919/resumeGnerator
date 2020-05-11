@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from '../../Wrapper';
 import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 
 import Logo from '../../img/logo.png';
 import UKFlag from '../../img/uk.png';
@@ -41,7 +42,7 @@ const UserPageHeader = ({ logout }) => {
           />
         </button>
         <button onClick={handleLogout} className="header__logout">
-          Log out
+          <FormattedMessage id="Logout" defaultMessage="Log out" />
         </button>
       </div>
     </header>

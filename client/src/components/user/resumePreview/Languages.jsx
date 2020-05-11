@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const Languages = ({ user }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
@@ -6,7 +7,9 @@ const Languages = ({ user }) => {
   return (
     <div className="resumePreview__languages">
       <div className="heading-resume">
-        <h3 className="resumePreview__heading">Foreign Languages</h3>
+        <h3 className="resumePreview__heading">
+          <FormattedMessage id="Header.languages" defaultMessage="Languages" />
+        </h3>
       </div>
       <div className="resumePreview__languages__content">
         {user.languages.map((lang) => (

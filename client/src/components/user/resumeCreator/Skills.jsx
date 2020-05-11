@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -109,19 +110,22 @@ const Skills = ({ skillsUpdate }) => {
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
           onClick={() => handleSaveDataAndRedirect('previous')}
         >
-          Edukacja
+          <FormattedMessage id="Btn.education" defaultMessage="Education" />
         </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
-            Optymalna ilość wybranych technologii dla tego designu wynosi 10
+            <FormattedMessage
+              id="Info.skills"
+              defaultMessage="The optimal number of selected technologies for this design is 10"
+            />
           </span>
         </div>
         <button
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
           onClick={() => handleSaveDataAndRedirect('next')}
         >
-          Projekty
+          <FormattedMessage id="Btn.projects" defaultMessage="Projects" />
         </button>
       </div>
     </div>

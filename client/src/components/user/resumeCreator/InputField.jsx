@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 const InputField = ({
   type,
@@ -26,18 +27,22 @@ const InputField = ({
           value ? 'resumeForms__field__text' : 'resumeForms__field__text--none'
         }
       >
-        {text}
+        <FormattedMessage id={text} defaultMessage={text} />
       </span>
-      <input
-        autoComplete="new-password"
-        type={`${type}`}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        className="input"
-        onChange={(e) => onChange(e)}
-        accept="image/*"
-      />
+      <FormattedMessage id={placeholder} defaultMessage={placeholder}>
+        {(msg) => (
+          <input
+            placeholder={msg}
+            autoComplete="new-password"
+            type={`${type}`}
+            name={name}
+            value={value}
+            className="input"
+            onChange={(e) => onChange(e)}
+            accept="image/*"
+          />
+        )}
+      </FormattedMessage>
     </div>
   );
 };

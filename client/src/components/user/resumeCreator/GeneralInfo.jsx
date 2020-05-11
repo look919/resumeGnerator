@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -74,7 +75,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.name}
           Icon={UserIcon}
           text="Imię i nazwisko"
-          placeholder="Imię i nazwisko"
+          placeholder="Input__name"
           onChange={onChange}
         />
         <InputField
@@ -83,7 +84,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.profession}
           Icon={ProfessionIcon}
           text="Profesja"
-          placeholder="profesja"
+          placeholder="Input__profession"
           onChange={onChange}
         />
         <InputField
@@ -92,7 +93,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.phone}
           Icon={PhoneIcon}
           text="Nr telefonu"
-          placeholder="nr telefonu"
+          placeholder="Input__phone"
           onChange={onChange}
         />
         <InputField
@@ -101,7 +102,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.email}
           Icon={EmailIcon}
           text="Email"
-          placeholder="email"
+          placeholder="Input__email"
           onChange={onChange}
         />
         <InputField
@@ -110,7 +111,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.website}
           Icon={WebsiteIcon}
           text="WWW"
-          placeholder="adres strony www"
+          placeholder="Input__website"
           onChange={onChange}
         />
         <InputField
@@ -118,7 +119,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           name="photo"
           Icon={PhotoIcon}
           text="Twoje zdjęcie"
-          placeholder="photo"
+          placeholder="Input__photo"
           onChange={onFileChange}
         />
         <InputField
@@ -127,7 +128,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.address}
           Icon={PinIcon}
           text="Adres"
-          placeholder="adres"
+          placeholder="Input__address"
           onChange={onChange}
         />
         <InputField
@@ -136,38 +137,53 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           value={formData.company}
           Icon={CompanyIcon}
           text="Nazwa firmy do klauzuli"
-          placeholder="Nazwa firmy do klauzuli"
+          placeholder="Input__company"
           onChange={onChange}
         />
 
         <div className="resumeForms__textarea">
           <div className="resumeForms__textarea__header">
             <SummaryIcon className="resumeForms__textarea__header__icon" />
-            <span className="resumeForms__textarea__header__text">Summary</span>
+            <span className="resumeForms__textarea__header__text">
+              <FormattedMessage
+                id="Input__summary"
+                defaultMessage="About you"
+              />
+            </span>
           </div>
 
-          <textarea
-            autoComplete="new-password"
-            name="summary"
-            value={formData.summary}
-            placeholder="summary"
-            className="textarea"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage
+            id="Input__summaryText"
+            defaultMessage="Quick information about yourself"
+          >
+            {(msg) => (
+              <textarea
+                autoComplete="new-password"
+                name="summary"
+                value={formData.summary}
+                placeholder={msg}
+                className="textarea"
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
         </div>
       </section>
       <div className="resumeCreator__content__btns">
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
-            Przejdź dalej by zapisać zmiany
+            <FormattedMessage
+              id="Info.generalInfo"
+              defaultMessage="Continue to save changes"
+            />
           </span>
         </div>
         <button
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
           onClick={() => handleSaveDataAndRedirect('next')}
         >
-          Edukacja
+          <FormattedMessage id="Btn.education" defaultMessage="Education" />
         </button>
       </div>
     </main>

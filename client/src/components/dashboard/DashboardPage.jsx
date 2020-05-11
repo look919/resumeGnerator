@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -55,14 +56,16 @@ const DashboardPage = ({ auth, login, register }) => {
         className="dashboard__box dashboard__box--register"
       >
         <RegisterIcon />
-        Zarejestruj się
+        <FormattedMessage id="Dashboard.register" defaultMessage="Register" />
       </button>
       <button
         onClick={() => setPage('login')}
         className="dashboard__box dashboard__box--login"
       >
         <LoginIcon />
-        <span className="dashboard__box__span">Zaloguj się</span>
+        <span className="dashboard__box__span">
+          <FormattedMessage id="Dashboard.login" defaultMessage="Log in" />
+        </span>
       </button>
     </div>
   );
@@ -74,6 +77,7 @@ const DashboardPage = ({ auth, login, register }) => {
       <button
         className="dashboard__btn dashboard__btn--en"
         onClick={context.selectEn}
+        value={'pl'}
       >
         <img
           src={UKFlag}
@@ -94,13 +98,21 @@ const DashboardPage = ({ auth, login, register }) => {
           className="dashboard__btn__img"
         />
       </button>
-      <span className="dashboard__info">Zarejestruj się żeby stworzyć CV</span>
+
+      <span className="dashboard__info">
+        <FormattedMessage
+          id="Dashboard.info"
+          defaultMessage="Register to create resume"
+        />
+      </span>
 
       {page === 'dashboard' ? (
         <DashboardPage />
       ) : page === 'login' ? (
         <form className="login">
-          <h4 className="heading-4 login__heading">Zaloguj się</h4>
+          <h4 className="heading-4 login__heading">
+            <FormattedMessage id="Dashboard.login" defaultMessage="Log in" />
+          </h4>
           <input
             className="login__input"
             name="email"
@@ -110,24 +122,37 @@ const DashboardPage = ({ auth, login, register }) => {
               onChange(e);
             }}
           />
-          <input
-            type="password"
-            className="login__input"
-            name="password"
-            value={formData.password}
-            placeholder="password"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage id="Dashboard.passwd" defaultMessage="password">
+            {(msg) => (
+              <input
+                type="password"
+                className="login__input"
+                name="password"
+                value={formData.password}
+                placeholder={msg}
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
           <button onClick={(e) => onLogin(e)} className="login__btn">
-            Login
+            <FormattedMessage id="Dashboard.login" defaultMessage="Log in" />
           </button>
           <button onClick={(e) => onRedirect(e)} className="login__redirect">
-            Register &rarr;
+            <FormattedMessage
+              id="Dashboard.register"
+              defaultMessage="Register"
+            />{' '}
+            &rarr;
           </button>
         </form>
       ) : page === 'register' ? (
         <form className="register">
-          <h4 className="heading-4 register__heading">Zarejestruj się</h4>
+          <h4 className="heading-4 register__heading">
+            <FormattedMessage
+              id="Dashboard.register"
+              defaultMessage="Register"
+            />
+          </h4>
           <input
             className="register__input"
             name="email"
@@ -135,35 +160,50 @@ const DashboardPage = ({ auth, login, register }) => {
             placeholder="email"
             onChange={(e) => onChange(e)}
           />
-          <input
-            type="password"
-            className="login__input"
-            name="password"
-            value={formData.password}
-            placeholder="password"
-            onChange={(e) => onChange(e)}
-          />
-          <input
-            type="password"
-            className="login__input"
-            name="passwordConfirm"
-            value={formData.passwordConfirm}
-            placeholder="password confirm"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage id="Dashboard.passwd" defaultMessage="password">
+            {(msg) => (
+              <input
+                type="password"
+                className="login__input"
+                name="password"
+                value={formData.password}
+                placeholder={msg}
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
+          <FormattedMessage
+            id="Dashboard.passwdConf"
+            defaultMessage="password confirm"
+          >
+            {(msg) => (
+              <input
+                type="password"
+                className="login__input"
+                name="passwordConfirm"
+                value={formData.passwordConfirm}
+                placeholder={msg}
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
           <button
             onClick={(e) => onRegister(e)}
             className="login__btn"
             tabIndex="1"
           >
-            Register
+            <FormattedMessage
+              id="Dashboard.register"
+              defaultMessage="Register"
+            />
           </button>
           <button
             onClick={() => setPage('login')}
             className="login__redirect register__btn__redirect"
             tabIndex="0"
           >
-            Login &rarr;
+            <FormattedMessage id="Dashboard.login" defaultMessage="Log in" />{' '}
+            &rarr;
           </button>
         </form>
       ) : (
@@ -171,8 +211,10 @@ const DashboardPage = ({ auth, login, register }) => {
       )}
 
       <div className="dashboard__footer">
-        Wyrażam samemu sobie zgodę na stworzenie CV, które zapewni mi dobrą
-        pracę.
+        <FormattedMessage
+          id="Dashboard.footer"
+          defaultMessage="I hereby consent myself to create Resume which wiill provide me good job."
+        />
       </div>
     </section>
   );
