@@ -48,5 +48,14 @@
   "Input__projectThreeLink": "3ci projekt link",
   "Input__projectThreeDesc": "3ci projekt opis",
   "Download.info": "Twoje CV jest gotowe, kliknij poniższy przycisk żeby je pobrać!",
-  "Download.btn": "Pobierz"
+  "Download.btn": "Pobierz",
+
+  "Header.summary": "O mnie",
+  "Header.education": "Edukacja",
+  "Header.languages": "Języki obce",
+  "Header.projects": "Projekty",
+  "Header.skills": "Umiejętności",
+  "Header.certificates": "Certifikaty",
+  "ClauseOne": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ",
+  "ClauseTwo": " w celu prowadzenia rekrutacji na aplikowane przeze mnie stanowisko."
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { WebsiteIcon2 } from '../../layout/Icons';
 
 const Projects = ({ user }) => {
@@ -7,7 +8,9 @@ const Projects = ({ user }) => {
   return (
     <div className="resumePreview__projects">
       <div className="heading-resume">
-        <h3 className="resumePreview__heading">Projects</h3>
+        <h3 className="resumePreview__heading">
+          <FormattedMessage id="Header.projects" defaultMessage="Projects" />
+        </h3>
       </div>
       <div className="resumePreview__projects__content">
         {user.projects.map((project) => (

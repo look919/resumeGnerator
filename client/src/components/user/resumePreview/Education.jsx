@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { CalendarIcon } from '../../layout/Icons';
 
 const Education = ({ user }) => {
@@ -7,7 +8,9 @@ const Education = ({ user }) => {
   return (
     <div className="resumePreview__education">
       <div className="heading-resume">
-        <h3 className="resumePreview__heading">Education</h3>
+        <h3 className="resumePreview__heading">
+          <FormattedMessage id="Header.education" defaultMessage="Education" />
+        </h3>
       </div>
       {user.education.map((school) => (
         <div

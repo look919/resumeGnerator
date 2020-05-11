@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import * as Ic from '../../layout//BrandIcons';
 const Skills = ({ user }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
@@ -67,7 +68,9 @@ const Skills = ({ user }) => {
   return (
     <div className="resumePreview__skills">
       <div className="heading-resume">
-        <h3 className="resumePreview__heading">Skills</h3>
+        <h3 className="resumePreview__heading">
+          <FormattedMessage id="Header.skills" defaultMessage="Skills" />
+        </h3>
       </div>
       <div className="resumePreview__skills__content">
         {user.skills.map((skill) => (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { StarIcon } from '../../layout/Icons';
 
 const Certificates = ({ user }) => {
@@ -7,7 +8,12 @@ const Certificates = ({ user }) => {
   return (
     <div className="resumePreview__certificates">
       <div className="heading-resume">
-        <h3 className="resumePreview__heading">Certifications</h3>
+        <h3 className="resumePreview__heading">
+          <FormattedMessage
+            id="Header.certificates"
+            defaultMessage="Certifications"
+          />
+        </h3>
       </div>
       <div className="resumePreview__certificates__content">
         {user.certification.map((certif) => (
