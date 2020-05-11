@@ -7,7 +7,7 @@ const GeneralInfo = () => {
   const printPDF = () => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
-      scale: 4,
+      scale: 3,
       onclone: (document) => {
         document.getElementById('print').style.visibility = 'hidden';
       },
@@ -15,7 +15,7 @@ const GeneralInfo = () => {
       const imgData = canvas.toDataURL('image/png');
 
       var doc = new jsPdf('p', 'mm', 'a4');
-      doc.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+      doc.addImage(imgData, 'JPEG', 0, 0, 210, 297, 'FAST');
       doc.save(`resume.pdf`);
     });
   };

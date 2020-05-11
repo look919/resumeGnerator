@@ -1,1 +1,8 @@
-{}
+{
+  "Dashboard.info": "Register to create Resume",
+  "Dashboard.register.btn": "Log in",
+  "Dashboard.login.btn": "Register",
+  "Dashboard.passwd": "password",
+  "Dashboard.passwdConf": "password confirm",
+  "Dashboard.footer": "I hereby consent myself to create Resume which wiill provide me a good job."
+}

@@ -1,1 +1,8 @@
-{}
+{
+  "Dashboard.info": "Zarejestruj się żeby stworzyć CV",
+  "Dashboard.register": "Zarejestruj się",
+  "Dashboard.login": "Zaloguj się",
+  "Dashboard.passwd": "hasło",
+  "Dashboard.passwdConf": "powtórz hasło",
+  "Dashboard.footer": "Wyrażam samemu sobie zgodę na stworzenie CV, które zapewni mi dobrą pracę."
+}
