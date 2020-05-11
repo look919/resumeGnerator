@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -76,7 +77,7 @@ const Education = ({ user, educationUpdate }) => {
             value={formData.educationOneSpeciality}
             Icon={StarIcon}
             text="Specjalność/Kierunek szkoły nr 1"
-            placeholder="specjalność/kierunek szkoły nr 1"
+            placeholder="Input__specialityOne"
             onChange={onChange}
           />
           <InputField
@@ -85,7 +86,7 @@ const Education = ({ user, educationUpdate }) => {
             value={formData.educationOneSchool}
             Icon={EducationIcon}
             text="Szkoła nr 1"
-            placeholder="szkoła nr 1"
+            placeholder="Input__schoolOne"
             onChange={onChange}
           />
           <div className="resumeForms__education__time">
@@ -94,8 +95,8 @@ const Education = ({ user, educationUpdate }) => {
               name="educationOneStartDate"
               value={formData.educationOneStartDate}
               Icon={CalendarIcon}
-              text="Data rozpoczęcia"
-              placeholder="data rozpoczęcia"
+              text="Input__schoolStartDate"
+              placeholder="Input__schoolStartDate"
               onChange={onChange}
               halfLong={true}
             />
@@ -104,8 +105,8 @@ const Education = ({ user, educationUpdate }) => {
               name="educationOneEndDate"
               value={formData.educationOneEndDate}
               Icon={CalendarIcon}
-              text="Data zakończenia"
-              placeholder="data zakończenia"
+              text="Input__schoolEndDate"
+              placeholder="Input__schoolEndDate"
               onChange={onChange}
               halfLong={true}
             />
@@ -118,7 +119,7 @@ const Education = ({ user, educationUpdate }) => {
             value={formData.educationTwoSpeciality}
             Icon={StarIcon}
             text="Specjalność/Kierunek szkoły nr 2"
-            placeholder="specjalność/kierunek szkoły nr 2"
+            placeholder="Input__specialityTwo"
             onChange={onChange}
           />
           <InputField
@@ -127,7 +128,7 @@ const Education = ({ user, educationUpdate }) => {
             value={formData.educationTwoSchool}
             Icon={EducationIcon}
             text="Szkoła nr 2"
-            placeholder="szkoła nr 2"
+            placeholder="Input__schoolTwo"
             onChange={onChange}
           />
           <div className="resumeForms__education__time">
@@ -136,8 +137,8 @@ const Education = ({ user, educationUpdate }) => {
               name="educationTwoStartDate"
               value={formData.educationTwoStartDate}
               Icon={CalendarIcon}
-              text="Data rozpoczęcia"
-              placeholder="data rozpoczęcia"
+              text="Input__schoolStartDate"
+              placeholder="Input__schoolStartDate"
               onChange={onChange}
               halfLong={true}
             />
@@ -146,8 +147,8 @@ const Education = ({ user, educationUpdate }) => {
               name="educationTwoEndDate"
               value={formData.educationTwoEndDate}
               Icon={CalendarIcon}
-              text="Data zakończenia"
-              placeholder="data zakończenia"
+              text="Input__schoolEndDate"
+              placeholder="Input__schoolEndDate"
               onChange={onChange}
               halfLong={true}
             />
@@ -159,13 +160,16 @@ const Education = ({ user, educationUpdate }) => {
             name="languagesOneLang"
             value={formData.languagesOneLang}
             Icon={WorldIcon}
-            text="Język obcy"
-            placeholder="język obcy"
+            text="Input__language"
+            placeholder="Input__language"
             onChange={onChange}
           />
           <div className="resumeForms__language__slider">
             <span className="resumeForms__language__slider__info--one">
-              Stopień znajomości
+              <FormattedMessage
+                id="Input__level"
+                defaultMessage="Degree of knowledge"
+              />
             </span>
             <Slider
               min={1}
@@ -192,13 +196,16 @@ const Education = ({ user, educationUpdate }) => {
             name="languagesTwoLang"
             value={formData.languagesTwoLang}
             Icon={WorldIcon}
-            text="Język obcy"
-            placeholder="język obcy"
+            text="Input__language"
+            placeholder="Input__language"
             onChange={onChange}
           />
           <div className="resumeForms__language__slider">
             <span className="resumeForms__language__slider__info--one">
-              Stopień znajomości
+              <FormattedMessage
+                id="Input__level"
+                defaultMessage="Degree of knowledge"
+              />
             </span>
             <Slider
               min={1}
@@ -225,8 +232,8 @@ const Education = ({ user, educationUpdate }) => {
           name="certificateOne"
           value={formData.certificateOne}
           Icon={StarIcon}
-          text="1st certificate"
-          placeholder="1st certificate"
+          text="Input__certificateOne"
+          placeholder="Input__certificateOne"
           onChange={onChange}
         />
         <InputField
@@ -234,8 +241,8 @@ const Education = ({ user, educationUpdate }) => {
           name="certificateTwo"
           value={formData.certificateTwo}
           Icon={StarIcon}
-          text="2nd certificate"
-          placeholder="2nd certificate"
+          text="Input__certificateTwo"
+          placeholder="Input__certificateTwo"
           onChange={onChange}
         />
       </section>
@@ -244,20 +251,25 @@ const Education = ({ user, educationUpdate }) => {
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
           onClick={() => handleSaveDataAndRedirect('previous')}
         >
-          Ogólne
+          <FormattedMessage
+            id="Btn.generalInfo"
+            defaultMessage="General info"
+          />
         </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
-            Zaleca się uzupełnić wszystkie pola, możesz wszakże wyczyścić
-            zawartość całej sekcji żeby się jej pozbyć
+            <FormattedMessage
+              id="Info.education"
+              defaultMessage="It is recommended to fill in all fields, after all you can clear the entire section content to get rid of it"
+            />
           </span>
         </div>
         <button
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
           onClick={() => handleSaveDataAndRedirect('next')}
         >
-          Umiejętności
+          <FormattedMessage id="Btn.skills" defaultMessage="Skills" />
         </button>
       </div>
     </div>

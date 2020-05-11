@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -55,78 +56,99 @@ const Projects = ({ user, projectsUpdate }) => {
             name="projectOneName"
             value={formData.projectOneName}
             Icon={ProjectIcon}
-            text="1st project name"
-            placeholder="1st project name"
+            text="Input__projectOne"
+            placeholder="Input__projectOne"
             onChange={onChange}
           />
           <InputField
             name="projectOneLink"
             value={formData.projectOneLink}
             Icon={WebsiteIcon}
-            text="1st project link"
-            placeholder="1st project link"
+            text="Input__projectOneLink"
+            placeholder="Input__projectOneLink"
             onChange={onChange}
           />
-          <textarea
-            autoComplete="new-password"
-            name="projectOneDesc"
-            value={formData.projectOneDesc}
-            placeholder="1st project description"
-            className="textarea textarea__project"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage
+            id="Input__projectOneDesc"
+            defaultMessage="Input__projectOneDesc"
+          >
+            {(msg) => (
+              <textarea
+                autoComplete="new-password"
+                name="projectOneDesc"
+                value={formData.projectOneDesc}
+                placeholder={msg}
+                className="textarea textarea__project"
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
         </div>
         <div className="resumeForms__project resumeForms__project--2">
           <InputField
             name="projectTwoName"
             value={formData.projectTwoName}
             Icon={ProjectIcon}
-            text="2nd project name"
-            placeholder="2nd project name"
+            text="Input__projectTwo"
+            placeholder="Input__projectTwo"
             onChange={onChange}
           />
           <InputField
             name="projectTwoLink"
             value={formData.projectTwoLink}
             Icon={WebsiteIcon}
-            text="2nd project link"
-            placeholder="2nd project link"
+            text="Input__projectTwoLink"
+            placeholder="Input__projectTwoLink"
             onChange={onChange}
           />
-          <textarea
-            autoComplete="new-password"
-            name="projectTwoDesc"
-            value={formData.projectTwoDesc}
-            placeholder="2nd project description"
-            className="textarea textarea__project"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage
+            id="Input__projectTwoDesc"
+            defaultMessage="Input__projectTwoDesc"
+          >
+            {(msg) => (
+              <textarea
+                autoComplete="new-password"
+                name="projectTwoDesc"
+                value={formData.projectTwoDesc}
+                placeholder={msg}
+                className="textarea textarea__project"
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
         </div>
         <div className="resumeForms__project resumeForms__project--3">
           <InputField
             name="projectThreeName"
             value={formData.projectThreeName}
             Icon={ProjectIcon}
-            text="3rd project name"
-            placeholder="3rd project name"
+            text="Input__projectThree"
+            placeholder="Input__projectThree"
             onChange={onChange}
           />
           <InputField
             name="projectThreeLink"
             value={formData.projectThreeLink}
             Icon={WebsiteIcon}
-            text="3rd project link"
-            placeholder="3rd project link"
+            text="Input__projectThreeLink"
+            placeholder="Input__projectThreeLink"
             onChange={onChange}
           />
-          <textarea
-            autoComplete="new-password"
-            name="projectThreeDesc"
-            value={formData.projectThreeDesc}
-            placeholder="3rd project description"
-            className="textarea textarea__project"
-            onChange={(e) => onChange(e)}
-          />
+          <FormattedMessage
+            id="Input__projectThreeDesc"
+            defaultMessage="Input__projectThreeDesc"
+          >
+            {(msg) => (
+              <textarea
+                autoComplete="new-password"
+                name="projectThreeDesc"
+                value={formData.projectThreeDesc}
+                placeholder={msg}
+                className="textarea textarea__project"
+                onChange={(e) => onChange(e)}
+              />
+            )}
+          </FormattedMessage>
         </div>
       </section>
       <div className="resumeCreator__content__btns">
@@ -134,20 +156,22 @@ const Projects = ({ user, projectsUpdate }) => {
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--previous`}
           onClick={() => handleSaveDataAndRedirect('previous')}
         >
-          Umiejętności
+          <FormattedMessage id="Btn.skills" defaultMessage="Skills" />
         </button>
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
           <span className="resumeCreator__content__btns__info__text">
-            Uporządkuj projekty od najważniejszego stopniowo zmniejszając ilość
-            tekstu z każdym kolejnym.
+            <FormattedMessage
+              id="Info.projects"
+              defaultMessage="Organize projects from the most important by gradually reducing the amount of text with each subsequent"
+            />
           </span>
         </div>
         <button
           className={`resumeCreator__content__btns__btn resumeCreator__content__btns__btn--next`}
           onClick={() => handleSaveDataAndRedirect('next')}
         >
-          Pobierz
+          <FormattedMessage id="Btn.download" defaultMessage="Download" />
         </button>
       </div>
     </div>
