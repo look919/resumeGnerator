@@ -27,7 +27,7 @@ const InputField = ({
           value ? 'resumeForms__field__text' : 'resumeForms__field__text--none'
         }
       >
-        <FormattedMessage id={text} defaultMessage={text} />
+        <FormattedMessage id={placeholder} defaultMessage={text} />
       </span>
       <FormattedMessage id={placeholder} defaultMessage={placeholder}>
         {(msg) => (

@@ -20,6 +20,7 @@
   "Input__name": "name and vorname",
   "Input__profession": "profession",
   "Input__phone": "phone number",
+  "Input__photo": "photo",
   "Input__email": "email",
   "Input__website": "your personal website",
   "Input__file": "photo",
@@ -57,5 +58,7 @@
   "Header.skills": "Skills",
   "Header.certificates": "Certifications",
   "ClauseOne": "I hereby consent to my personal data being processed by ",
-  "ClauseTwo": " for the purpose of considering my application for the vacancy advertised under reference number (123XX6 etc.)"
+  "ClauseTwo": " for the purpose of considering my application for the vacancy advertised under reference number (123XX6 etc.)",
+
+  "default": "default"
 }

@@ -19,6 +19,7 @@
 
   "Input__name": "imię i nazwisko",
   "Input__profession": "profesja",
+  "Input__photo": "zdjęcie",
   "Input__phone": "nr telefonu",
   "Input__email": "email",
   "Input__website": "adres strony",
@@ -57,5 +58,7 @@
   "Header.skills": "Umiejętności",
   "Header.certificates": "Certifikaty",
   "ClauseOne": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ",
-  "ClauseTwo": " w celu prowadzenia rekrutacji na aplikowane przeze mnie stanowisko."
+  "ClauseTwo": " w celu prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.",
+
+  "default": "default"
 }
