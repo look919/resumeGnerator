@@ -1,6 +1,12 @@
 .radio {
+  height: 100%;
   width: 100%;
   display: flex;
+
+  @media only screen and (max-width: $bp-800) {
+    justify-content: center;
+  }
+
   &__icon {
     height: 2.5rem;
     width: 2.5rem;
@@ -11,6 +17,14 @@
       width: 2rem;
       margin-right: 0.5rem;
     }
+    @media only screen and (max-width: $bp-800) {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    @media only screen and (max-width: $bp-500) {
+      margin-top: 3px;
+      margin-right: 2px;
+    }
   }
   &__text {
     width: 12rem;
@@ -18,6 +32,12 @@
     @media only screen and (max-width: $bp-1200) {
       width: 8rem;
       font-size: 1.2rem;
+    }
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1rem;
+    }
+    @media only screen and (max-width: $bp-500) {
+      margin-top: 3px;
     }
   }
   &__input {
@@ -28,6 +48,10 @@
     height: 100%;
     cursor: pointer;
     position: relative;
+
+    @media only screen and (max-width: $bp-500) {
+      width: 2.5rem;
+    }
   }
   &__btn {
     margin-left: 1rem;
@@ -39,6 +63,13 @@
     position: absolute;
     left: 0;
     top: 0;
+
+    @media only screen and (max-width: $bp-500) {
+      height: 2rem;
+      width: 2rem;
+      margin-left: 0;
+      border: 3px solid $color-lightBlue;
+    }
 
     &::after {
       content: '';
@@ -53,6 +84,11 @@
       background-color: $color-lightBlue;
       opacity: 0;
       transition: opacity 0.2s;
+
+      @media only screen and (max-width: $bp-500) {
+        height: 0.6rem;
+        width: 0.6rem;
+      }
     }
   }
 }

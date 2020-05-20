@@ -9,6 +9,9 @@
   @media only screen and (max-width: $bp-1000) {
     height: 100%;
   }
+  @media only screen and (max-width: $bp-800) {
+    padding: 0 1rem;
+  }
 
   background-image: linear-gradient(
     to right bottom,
@@ -39,9 +42,16 @@
     }
     @media only screen and (max-width: $bp-1000) {
       grid-template-columns: 1fr;
-      grid-template-rows: min-content min-content;
+      grid-template-rows: min-content 1fr;
       grid-column-gap: 0;
       grid-row-gap: 5rem;
+    }
+    @media only screen and (max-width: $bp-800) {
+      padding: 0 1rem;
+    }
+    @media only screen and (max-width: $bp-500) {
+      grid-row-gap: 2rem;
+      padding: 0;
     }
 
     &__header {

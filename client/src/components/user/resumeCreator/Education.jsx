@@ -50,10 +50,10 @@ const Education = ({ user, educationUpdate }) => {
   const onSliderTwoChange = (e) =>
     setFormData({ ...formData, languagesTwoLevel: e });
 
-  const handleSaveDataAndRedirect = async (direction) => {
+  const handleSaveDataAndRedirect = (direction) => {
     if (formData.changes) {
-      await educationUpdate(formData);
-      await setFormData({
+      educationUpdate(formData);
+      setFormData({
         ...formData,
         redirect: direction,
       });

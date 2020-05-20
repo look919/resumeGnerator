@@ -11,6 +11,11 @@
     grid-row: 2 / 3;
     cursor: pointer;
 
+    @media only screen and (max-width: $bp-500) {
+      height: 3rem;
+      width: 4rem;
+    }
+
     &__img {
       height: 100%;
       width: 100%;
@@ -54,6 +59,13 @@
     text-align: center;
     cursor: pointer;
 
+    @media only screen and (max-width: $bp-1200) {
+      height: 15rem;
+    }
+    @media only screen and (max-width: $bp-500) {
+      height: 10rem;
+    }
+
     &--login {
       background-color: $color-dashboard-light;
     }
@@ -66,12 +78,21 @@
       width: 6rem;
       fill: $color-white;
       margin-bottom: 1.5rem;
+
+      @media only screen and (max-width: $bp-500) {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
   &__footer {
     text-align: center;
     grid-row: 5 / 6;
     grid-column: 1 / -1;
+
+    @media only screen and (max-width: $bp-500) {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -89,6 +110,10 @@
     grid-column: 1 / -1;
     text-align: center;
     font-weight: 600;
+
+    @media only screen and (max-width: $bp-500) {
+      font-size: 1.4rem;
+    }
   }
   &__input {
     grid-column: 1 / -1;

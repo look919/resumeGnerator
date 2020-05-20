@@ -39,6 +39,9 @@
       transform: translateY(0) translateX(0) scale(1);
     }
   }
+  @media only screen and (max-width: $bp-350) {
+    display: none;
+  }
 
   &__heading {
     font-size: 1rem;
