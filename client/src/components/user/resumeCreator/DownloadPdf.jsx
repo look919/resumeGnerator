@@ -23,7 +23,7 @@ const GeneralInfo = () => {
   return (
     <div className="resumeCreator__content">
       <section className="resumeForms resumeForms--download">
-        <p>
+        <p className="resumeForms--download__p">
           {' '}
           <FormattedMessage
             id="Download.info"

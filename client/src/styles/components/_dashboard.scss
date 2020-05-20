@@ -2,12 +2,19 @@
   &__logo {
     grid-column: 1 / -1;
     width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   &__btn {
-    height: 3rem;
-    width: 4rem;
+    height: 5rem;
+    width: 7rem;
     grid-row: 2 / 3;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-500) {
+      height: 3rem;
+      width: 4rem;
+    }
 
     &__img {
       height: 100%;
@@ -27,7 +34,7 @@
     grid-column: 1 / -1;
 
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   &__boxes {
     grid-row: 4 / 5;
@@ -36,20 +43,28 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
   }
   &__box {
-    height: 100%;
+    height: 30rem;
     width: 100%;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     padding: 2rem 0;
     color: $color-grey-light-1;
     text-align: center;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-1200) {
+      height: 15rem;
+    }
+    @media only screen and (max-width: $bp-500) {
+      height: 10rem;
+    }
 
     &--login {
       background-color: $color-dashboard-light;
@@ -63,12 +78,21 @@
       width: 6rem;
       fill: $color-white;
       margin-bottom: 1.5rem;
+
+      @media only screen and (max-width: $bp-500) {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
   &__footer {
     text-align: center;
     grid-row: 5 / 6;
     grid-column: 1 / -1;
+
+    @media only screen and (max-width: $bp-500) {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -86,6 +110,10 @@
     grid-column: 1 / -1;
     text-align: center;
     font-weight: 600;
+
+    @media only screen and (max-width: $bp-500) {
+      font-size: 1.4rem;
+    }
   }
   &__input {
     grid-column: 1 / -1;

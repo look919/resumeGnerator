@@ -1,10 +1,25 @@
 .resumeCreator {
   width: 100%;
-  height: 44.55rem;
+  height: 55rem;
+
   display: grid;
   grid-template-rows: 3rem 1fr;
   align-items: center;
   justify-items: center;
+
+  @media only screen and (max-width: $bp-1600) {
+    height: 44.55rem;
+  }
+  @media only screen and (max-width: $bp-1000) {
+    width: 80%;
+    margin: 4rem 0;
+  }
+  @media only screen and (max-width: $bp-800) {
+    width: 100%;
+  }
+  @media only screen and (max-width: $bp-500) {
+    height: 100%;
+  }
 
   &__list {
     width: 80%;
@@ -12,9 +27,19 @@
     justify-content: space-around;
     align-items: center;
 
+    @media only screen and (max-width: $bp-1200) {
+      width: 100%;
+    }
     &__item {
       cursor: none;
       pointer-events: none;
+
+      @media only screen and (max-width: $bp-1200) {
+        font-size: 1.4rem;
+      }
+      @media only screen and (max-width: $bp-500) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -22,9 +47,13 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 1fr 5rem;
     align-items: center;
     justify-items: center;
+
+    @media only screen and (max-width: $bp-500) {
+      grid-template-rows: min-content 8rem;
+    }
 
     &__btns {
       width: 100%;
@@ -32,9 +61,17 @@
       display: grid;
       grid-template-columns: 18rem 1fr 18rem;
       align-items: center;
-
       color: $color-grey-light-1;
       text-align: center;
+
+      @media only screen and (max-width: $bp-1200) {
+        grid-template-columns: 12rem 1fr 12rem;
+      }
+      @media only screen and (max-width: $bp-500) {
+        grid-template-rows: repeat(2, min-content);
+        grid-template-columns: 12rem 1fr 12rem;
+        grid-row-gap: 1rem;
+      }
 
       &__info {
         height: 100%;
@@ -44,15 +81,32 @@
         align-items: center;
         justify-content: center;
 
+        @media only screen and (max-width: $bp-500) {
+          padding: 0 0.5rem;
+          flex-direction: column;
+          grid-column: 1 / -1;
+        }
+
         &__icon {
           height: 3rem;
           width: 3rem;
           fill: $color-dashboard-dark;
           margin-right: 1rem;
+
+          @media only screen and (max-width: $bp-500) {
+            margin-right: 0;
+            height: 1rem;
+            width: 1rem;
+            margin-bottom: 3px;
+          }
         }
         &__text {
           font-size: 1.2rem;
           color: $color-black;
+
+          @media only screen and (max-width: $bp-600) {
+            font-size: 1rem;
+          }
         }
       }
       &__btn {
@@ -68,6 +122,17 @@
           rgba($color-dashboard-light, 1),
           rgba($color-dashboard-dark, 1)
         );
+
+        @media only screen and (max-width: $bp-1200) {
+          font-size: 1rem;
+        }
+        @media only screen and (max-width: $bp-500) {
+          height: 2.5rem;
+          grid-row: 2 / 3;
+        }
+        @media only screen and (max-width: $bp-400) {
+          height: 2.5rem;
+        }
 
         &--previous {
           grid-column: 1 / 2;
