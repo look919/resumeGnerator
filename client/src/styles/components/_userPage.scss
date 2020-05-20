@@ -1,7 +1,14 @@
 .userPage {
   width: 100%;
   height: 100vh;
-  padding: 0 2rem;
+  padding: 4rem 6rem;
+
+  @media only screen and (max-width: $bp-1600) {
+    padding: 0 2rem;
+  }
+  @media only screen and (max-width: $bp-1000) {
+    height: 100%;
+  }
 
   background-image: linear-gradient(
     to right bottom,
@@ -18,10 +25,24 @@
     height: 100%;
     padding: 0 3rem;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr 3fr;
     grid-column-gap: 15rem;
     align-items: center;
     justify-items: center;
+
+    @media only screen and (max-width: $bp-1600) {
+      grid-template-columns: 2fr 1fr;
+      grid-column-gap: 10rem;
+    }
+    @media only screen and (max-width: $bp-1200) {
+      grid-column-gap: 5rem;
+    }
+    @media only screen and (max-width: $bp-1000) {
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content min-content;
+      grid-column-gap: 0;
+      grid-row-gap: 5rem;
+    }
 
     &__header {
       font-size: 2.4rem;

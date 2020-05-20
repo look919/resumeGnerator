@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: column;
 
+  @media only screen and (max-width: $bp-1200) {
+    padding: 0 1rem;
+  }
+  @media only screen and (max-width: $bp-1000) {
+    padding: 4rem 1rem;
+  }
+
   &--generalInfo {
     display: grid;
     grid-template-rows: repeat(6, 5rem);
@@ -91,6 +98,7 @@
     grid-row: 1 / 5;
     grid-column: 2 / 3;
     height: 90%;
+    width: 100%;
 
     display: grid;
     grid-template-rows: 2.5rem 1fr;
@@ -126,13 +134,12 @@
     &__time {
       width: 100%;
       display: flex;
-      justify-content: center;
     }
 
     &__slider {
       display: flex;
       align-items: center;
-      width: 80%;
+      width: 60%;
 
       &__info {
         &--one {
@@ -156,4 +163,5 @@
 
 .rc-slider-track {
   background-color: $color-lightBlue;
+  //width: 80% !important;
 }

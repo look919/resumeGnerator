@@ -2,6 +2,7 @@
   //a4 21x29 in 1.5 scale
   width: 31.5rem;
   height: 44.55rem;
+
   //border: 1px solid $color-black;
   background-color: $color-white;
   box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
@@ -14,11 +15,29 @@
   grid-template-columns: 6.2fr 3.8fr;
   grid-template-rows: 10rem 6rem 4.5rem 9rem 1fr 2rem;
   grid-column-gap: 1.5rem;
-
+  transform: scale(1.35);
   transition: all 1s;
 
   &:hover {
-    transform: translateY(-4rem) translateX(-2rem) scale(1.45);
+    transform: translateY(-4rem) translateX(-2rem) scale(1.75);
+  }
+
+  @media only screen and (max-width: $bp-1600) {
+    transform: scale(1);
+
+    &:hover {
+      transform: translateY(-4rem) translateX(-2rem) scale(1.45);
+    }
+  }
+  @media only screen and (max-width: $bp-1200) {
+    &:hover {
+      transform: translateY(-3rem) translateX(-2rem) scale(1.2);
+    }
+  }
+  @media only screen and (max-width: $bp-1000) {
+    &:hover {
+      transform: translateY(0) translateX(0) scale(1);
+    }
   }
 
   &__heading {

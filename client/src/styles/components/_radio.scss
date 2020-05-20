@@ -5,9 +5,20 @@
     height: 2.5rem;
     width: 2.5rem;
     margin-right: 1rem;
+
+    @media only screen and (max-width: $bp-1200) {
+      height: 2rem;
+      width: 2rem;
+      margin-right: 0.5rem;
+    }
   }
   &__text {
     width: 12rem;
+
+    @media only screen and (max-width: $bp-1200) {
+      width: 8rem;
+      font-size: 1.2rem;
+    }
   }
   &__input {
     display: none;
