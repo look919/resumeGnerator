@@ -46,7 +46,7 @@
     align-items: center;
   }
   &__box {
-    height: 30rem;
+    height: 18rem;
     width: 100%;
 
     display: flex;
@@ -59,7 +59,7 @@
     text-align: center;
     cursor: pointer;
 
-    @media only screen and (max-width: $bp-1200) {
+    @media only screen and (max-width: $bp-1600) {
       height: 15rem;
     }
     @media only screen and (max-width: $bp-500) {
