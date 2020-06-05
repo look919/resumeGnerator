@@ -4,11 +4,19 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { projectsUpdate } from '../../../actions/auth';
+import { optionUpdate } from '../../../actions/auth';
 
 import InputField from './InputField';
-import { ProjectIcon, WebsiteIcon, InfoIcon } from '../../layout/Icons';
+import {
+  ProjectIcon,
+  WebsiteIcon,
+  InfoIcon,
+  CalendarIcon,
+} from '../../layout/Icons';
 
-const Projects = ({ user, projectsUpdate }) => {
+export const Context = React.createContext();
+
+const Projects = ({ user, projectsUpdate, optionUpdate }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
 
   const [formData, setFormData] = useState({
@@ -30,6 +38,9 @@ const Projects = ({ user, projectsUpdate }) => {
       [e.target.name]: e.target.value,
     });
   };
+  const setResumeOption = (arg) => {
+    optionUpdate(arg);
+  };
 
   const handleSaveDataAndRedirect = async (direction) => {
     if (formData.changes) {
@@ -48,7 +59,22 @@ const Projects = ({ user, projectsUpdate }) => {
   if (formData.redirect === 'next') return <Redirect to={`/user/final`} />;
   if (formData.redirect === 'previous') return <Redirect to={`/user/skills`} />;
   return (
-    <div className="resumeCreator__content">
+    <div className="resumeCreator__content resumeCreator__content--projects">
+      <div className="resumeCreator__content--projects__choose">
+        <button
+          className="resumeCreator__content--projects__choose__btn"
+          onClick={() => setResumeOption('proj')}
+        >
+          Projects
+        </button>
+        <h3 className="heading-3">Choose option</h3>
+        <button
+          className="resumeCreator__content--projects__choose__btn"
+          onClick={() => setResumeOption('exp')}
+        >
+          Work experience
+        </button>
+      </div>
       <section className="resumeForms resumeForms--projects">
         <div className="resumeForms__project resumeForms__project--1">
           <InputField
@@ -56,14 +82,13 @@ const Projects = ({ user, projectsUpdate }) => {
             name="projectOneName"
             value={formData.projectOneName}
             Icon={ProjectIcon}
-            text="Input__projectOne"
             placeholder="Input__projectOne"
             onChange={onChange}
           />
           <InputField
             name="projectOneLink"
             value={formData.projectOneLink}
-            Icon={WebsiteIcon}
+            Icon={user.option === 'proj' ? WebsiteIcon : CalendarIcon}
             text="Input__projectOneLink"
             placeholder="Input__projectOneLink"
             onChange={onChange}
@@ -182,4 +207,4 @@ Projects.propTypes = {
   projectsUpdate: PropTypes.func.isRequired,
 };
 
-export default connect(null, { projectsUpdate })(Projects);
+export default connect(null, { projectsUpdate, optionUpdate })(Projects);

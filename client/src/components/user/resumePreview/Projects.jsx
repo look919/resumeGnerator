@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { WebsiteIcon2 } from '../../layout/Icons';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { WebsiteIcon2, CalendarIcon } from '../../layout/Icons';
 
-const Projects = ({ user }) => {
+const Projects = ({ user, option }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
 
   return (
     <div className="resumePreview__projects">
       <div className="heading-resume">
         <h3 className="resumePreview__heading">
-          <FormattedMessage id="Header.projects" defaultMessage="Projects" />
+          {option === 'proj' ? (
+            <FormattedMessage id="Header.projects" defaultMessage="Projects" />
+          ) : (
+            <FormattedMessage
+              id="Header.experience"
+              defaultMessage="Experience"
+            />
+          )}
         </h3>
       </div>
       <div className="resumePreview__projects__content">
@@ -22,7 +31,13 @@ const Projects = ({ user }) => {
               {project.name}
             </span>
             <div className="resumePreview__projects__content__item__link">
-              <WebsiteIcon2 className="resumePreview__projects__content__item__link__icon" />
+              {option === 'proj' && project.url ? (
+                <WebsiteIcon2 className="resumePreview__projects__content__item__link__icon" />
+              ) : (
+                project.url && (
+                  <CalendarIcon className="resumePreview__projects__content__item__link__icon" />
+                )
+              )}
               <a
                 href={project.url}
                 className="resumePreview__projects__content__item__link__a"
@@ -40,4 +55,12 @@ const Projects = ({ user }) => {
   );
 };
 
-export default Projects;
+Projects.propTypes = {
+  option: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  option: state.auth.option,
+});
+
+export default connect(mapStateToProps, {})(Projects);
