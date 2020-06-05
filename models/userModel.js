@@ -69,7 +69,8 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: 'default.jpg',
+    default:
+      'https://resumegenerator.s3.eu-central-1.amazonaws.com/default.jpg',
   },
   //education
   languages: {

@@ -17,7 +17,7 @@ router.post('/logout', authController.logout);
 //   userController.resizeUserPhoto,
 //   userController.updateMe
 // );
-router.post(
+router.patch(
   '/updateMe',
   userController.uploadUserPhoto,
   userController.updateMe

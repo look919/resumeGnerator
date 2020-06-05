@@ -8,11 +8,14 @@ import {
   LOGOUT,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAIL,
+  UPDATE_OPTION_SUCCESS,
+  UPDATE_OPTION_FAIL,
 } from '../actions/types';
 
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
+  option: localStorage.getItem('option'),
   user: null,
 };
 
@@ -49,6 +52,12 @@ export default function (state = initialState, action) {
         user: payload,
         isAuthenticated: true,
       };
+    case UPDATE_OPTION_SUCCESS:
+      return {
+        ...state,
+        option: payload,
+      };
+    case UPDATE_OPTION_FAIL:
     case UPDATE_USER_FAIL:
     case REGISTER_FAIL:
     default:

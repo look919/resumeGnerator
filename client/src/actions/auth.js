@@ -12,6 +12,8 @@ import {
   LOGOUT,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAIL,
+  UPDATE_OPTION_SUCCESS,
+  UPDATE_OPTION_FAIL,
 } from './types';
 
 // Load User
@@ -136,7 +138,7 @@ export const generalInfoUpdate = ({
     },
   };
   try {
-    const res = await axios.post('/api/v1/users/updateMe', formData, config);
+    const res = await axios.patch('/api/v1/users/updateMe', formData, config);
 
     dispatch({
       type: UPDATE_USER_SUCCESS,
@@ -288,6 +290,22 @@ export const projectsUpdate = ({
     dispatch(setAlert('Data could not be saved', 'danger'));
     dispatch({
       type: UPDATE_USER_FAIL,
+      payload: err.message,
+    });
+  }
+};
+
+export const optionUpdate = (data) => async (dispatch) => {
+  try {
+    localStorage.setItem('option', data);
+    const res = localStorage.getItem('option') || 'proj';
+    dispatch({
+      type: UPDATE_OPTION_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: UPDATE_OPTION_FAIL,
       payload: err.message,
     });
   }

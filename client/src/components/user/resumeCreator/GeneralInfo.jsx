@@ -168,6 +168,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           </FormattedMessage>
         </div>
       </section>
+
       <div className="resumeCreator__content__btns">
         <div className="resumeCreator__content__btns__info">
           <InfoIcon className="resumeCreator__content__btns__info__icon" />
