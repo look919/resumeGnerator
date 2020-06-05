@@ -47,7 +47,6 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
       changes: true,
       photo: e.target.files[0],
     });
-    console.log(formData);
   };
 
   const handleSaveDataAndRedirect = async (direction) => {

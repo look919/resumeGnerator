@@ -126,13 +126,18 @@ export const generalInfoUpdate = ({
   formData.append('summary', summary);
   formData.append('company', company);
 
+  // for (var pair of formData.entries()) {
+  //   console.log(pair[0] + ', ' + pair[1]);
+  // }
+
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
   try {
-    const res = await axios.patch('/api/v1/users/updateMe', formData, config);
+    const res = await axios.post('/api/v1/users/updateMe', formData, config);
+
     dispatch({
       type: UPDATE_USER_SUCCESS,
       payload: res.data.data.user,
