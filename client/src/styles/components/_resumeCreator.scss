@@ -59,10 +59,18 @@
       grid-template-rows: 7rem 1fr 5rem;
 
       &__choose {
-        width: 60%;
+        width: 70%;
         display: flex;
         align-self: flex-end;
         justify-content: space-around;
+
+        @media only screen and (max-width: $bp-1600) {
+          width: 90%;
+        }
+        @media only screen and (max-width: $bp-800) {
+          width: 100%;
+          align-items: center;
+        }
 
         &__btn {
           color: $color-white;
@@ -74,6 +82,17 @@
             rgba($color-dashboard-light, 1),
             rgba($color-dashboard-dark, 1)
           );
+
+          @media only screen and (max-width: $bp-1200) {
+            font-size: 1.2rem;
+            padding: 0.2rem 1rem;
+          }
+          @media only screen and (max-width: $bp-800) {
+            //padding: 0.2rem 0.6rem;
+            width: 8rem;
+            height: 3.5rem;
+          }
+
           &:focus {
             outline: none;
           }

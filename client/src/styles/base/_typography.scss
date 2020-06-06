@@ -59,6 +59,9 @@ body {
   @media only screen and (max-width: $bp-800) {
     font-size: 1.8rem;
   }
+  @media only screen and (max-width: $bp-600) {
+    font-size: 1.4rem;
+  }
 }
 .heading-4 {
   @extend %heading;

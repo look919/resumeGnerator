@@ -1,16 +1,10 @@
 ## ResumeGenerator
 
-This project is not online just yet
+You can check project online by clicking that [link](https://resume-generatoor.herokuapp.com/).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Web application to create basic resume for junior web developers without commercial experience but with their own projects.
-
-#### Running
-
-##### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Web application to create basic resume for junior web developers without big commercial experience but with their own projects.
 
 #### Things I learned during that project
 
@@ -19,3 +13,4 @@ Things I learned during that project:
 - html2canvas
 - jsPDF
 - multer&sharp
+- AWS S3 buckets for file upload funcionality
