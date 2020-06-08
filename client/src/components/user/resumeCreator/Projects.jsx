@@ -16,7 +16,7 @@ import {
 
 export const Context = React.createContext();
 
-const Projects = ({ user, projectsUpdate, optionUpdate }) => {
+const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
 
   const [formData, setFormData] = useState({
@@ -88,7 +88,7 @@ const Projects = ({ user, projectsUpdate, optionUpdate }) => {
           <InputField
             name="projectOneLink"
             value={formData.projectOneLink}
-            Icon={user.option === 'proj' ? WebsiteIcon : CalendarIcon}
+            Icon={option === 'proj' ? WebsiteIcon : CalendarIcon}
             text="Input__projectOneLink"
             placeholder="Input__projectOneLink"
             onChange={onChange}
@@ -206,5 +206,10 @@ const Projects = ({ user, projectsUpdate, optionUpdate }) => {
 Projects.propTypes = {
   projectsUpdate: PropTypes.func.isRequired,
 };
+const mapStateToProps = (state) => ({
+  option: state.auth.option,
+});
 
-export default connect(null, { projectsUpdate, optionUpdate })(Projects);
+export default connect(mapStateToProps, { projectsUpdate, optionUpdate })(
+  Projects
+);

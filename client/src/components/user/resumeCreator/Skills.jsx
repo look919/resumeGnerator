@@ -36,7 +36,7 @@ const Skills = ({ skillsUpdate }) => {
     MySQL: false,
     MongoDB: false,
     AWS: false,
-    MinecrosoftAzure: false,
+    MicrosoftAzure: false,
     Nginx: false,
     Heroku: false,
     changes: false,
@@ -89,7 +89,7 @@ const Skills = ({ skillsUpdate }) => {
         <Radio Icon={Ic.MongoDBIcon} name="MongoDB" onChange={onChange} />
         <Radio
           Icon={Ic.MicrosoftAzureIcon}
-          name="MinecrosoftAzure"
+          name="MicrosoftAzure"
           onChange={onChange}
         />
         <Radio Icon={Ic.MySQLIcon} name="MySQL" onChange={onChange} />
