@@ -8,7 +8,10 @@ const GeneralInfo = () => {
   const printPDF = () => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
-      scale: 3,
+      scale: 4,
+      letterRendering: 1,
+      allowTaint: true,
+      useCORS: true,
       onclone: (document) => {
         document.getElementById('print').style.visibility = 'hidden';
       },

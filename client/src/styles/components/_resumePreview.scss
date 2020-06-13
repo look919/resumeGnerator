@@ -8,14 +8,13 @@
   box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
 
   //a4 margins
-  padding: 2.5rem 2.8rem;
+  padding: 2rem 2.8rem;
   padding-right: 2.2rem;
 
   display: grid;
   grid-template-columns: 6.2fr 3.8fr;
-  grid-template-rows: 10rem 6rem 4.5rem 9rem 1fr 2rem;
+  grid-template-rows: 10rem 6.5rem 4.5rem 9.5rem 7.5rem 2rem;
   grid-column-gap: 1.5rem;
-  transform: scale(1.35);
   transition: all 1s;
 
   &:hover {
@@ -23,8 +22,6 @@
   }
 
   @media only screen and (max-width: $bp-1600) {
-    transform: scale(1);
-
     &:hover {
       transform: translateY(-4rem) translateX(-2rem) scale(1.45);
     }
@@ -54,9 +51,8 @@
     grid-template-columns: 2fr 1fr;
 
     &__name {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      //letter-spacing: 1px;
       grid-column: 1 / -1;
     }
     &__profession {
@@ -219,7 +215,7 @@
           align-items: center;
 
           margin-top: -2px;
-          margin-bottom: 3px;
+          margin-bottom: 2px;
 
           &__icon {
             height: 0.5rem;
@@ -297,7 +293,8 @@
   }
   &__clause {
     grid-column: 1 / -1;
-    font-size: 0.6rem;
+    font-size: 5px;
+    margin-top: 2px;
     color: $color-grey-light-2;
   }
 }
