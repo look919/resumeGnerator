@@ -48,6 +48,7 @@
   "Input__projectThree": "3ci projekt/nazwa firmy",
   "Input__projectThreeLink": "3ci projekt link/okres zatrudnienia",
   "Input__projectThreeDesc": "opis projektu/zatrudnienia",
+  "Textarea__limit": "Limit znaków: ",
 
   "Header.summary": "O mnie",
   "Header.education": "Edukacja",

@@ -35,6 +35,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
     changes: false,
     redirect: 'none',
   });
+
   const onChange = (e) =>
     setFormData({
       ...formData,
@@ -163,9 +164,17 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
                 placeholder={msg}
                 className="textarea"
                 onChange={(e) => onChange(e)}
+                maxLength={225}
               />
             )}
           </FormattedMessage>
+          <p className="resumeForms__field__limit">
+            <FormattedMessage
+              id="Textarea__limit"
+              defaultMessage="Characters limit: "
+            />
+            {225 - formData.summary.length}
+          </p>
         </div>
       </section>
 

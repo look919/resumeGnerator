@@ -10,6 +10,7 @@ const InputField = ({
   placeholder,
   onChange,
   halfLong = false,
+  lengthLimit,
 }) => {
   return (
     <div
@@ -40,6 +41,7 @@ const InputField = ({
             className="input"
             onChange={(e) => onChange(e)}
             accept="image/*"
+            maxLength={lengthLimit || 1000}
           />
         )}
       </FormattedMessage>

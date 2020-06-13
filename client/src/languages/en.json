@@ -48,6 +48,7 @@
   "Input__projectThree": "3rd project name/company name",
   "Input__projectThreeLink": "3rd project link/period of employment",
   "Input__projectThreeDesc": "description",
+  "Textarea__limit": "Characters limit: ",
   "Download.info": "Your Resume is ready, click on the button bellow to download it!",
   "Download.btn": "Download",
 
