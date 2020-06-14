@@ -35,15 +35,15 @@
   }
 }
 .resumePreview {
-  height: 41.15rem;
+  height: 41.55rem;
   width: 27.1rem;
   position: absolute;
-  top: 2rem;
+  top: 1.8rem;
   left: 2.4rem;
 
   display: grid;
   grid-template-columns: 6.2fr 3.8fr;
-  grid-template-rows: 10rem 6.5rem 4.5rem 9.5rem 7.5rem 1fr;
+  grid-template-rows: 9.6rem 6.5rem 4.5rem 9.5rem 7.5rem 1fr;
   grid-column-gap: 1.5rem;
 
   &__heading {

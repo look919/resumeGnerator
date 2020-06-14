@@ -15,7 +15,6 @@ import {
   PinIcon,
   SummaryIcon,
   PhotoIcon,
-  CompanyIcon,
   InfoIcon,
 } from '../../layout/Icons';
 
@@ -30,7 +29,6 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
     email: user.emailField,
     address: user.address,
     website: user.website,
-    company: user.company,
     summary: user.summary,
     changes: false,
     redirect: 'none',
@@ -129,15 +127,6 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
           Icon={PinIcon}
           text="Adres"
           placeholder="Input__address"
-          onChange={onChange}
-        />
-        <InputField
-          type={'text'}
-          name="company"
-          value={formData.company}
-          Icon={CompanyIcon}
-          text="Nazwa firmy do klauzuli"
-          placeholder="Input__company"
           onChange={onChange}
         />
 

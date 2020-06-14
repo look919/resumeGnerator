@@ -7,15 +7,15 @@ const Clause = ({ user }) => {
   return (
     <div className="resumePreview__clause">
       <FormattedMessage
-        id="ClauseOne"
+        id="Clause"
         defaultMessage="I hereby consent to my personal data being processed by "
-      />
-      {user.company}
-      <FormattedMessage
-        id="ClauseTwo"
-        defaultMessage="for the purpose of considering my application for the vacancy advertised under reference number (123XX6 etc.)"
       />
     </div>
   );
 };
 export default Clause;
+// {user.company}
+//       <FormattedMessage
+//         id="ClauseTwo"
+//         defaultMessage="for the purpose of considering my application for the vacancy advertised under reference number (123XX6 etc.)"
+//       />

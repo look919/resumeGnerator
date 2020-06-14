@@ -149,7 +149,7 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
                   placeholder={msg}
                   className="textarea"
                   onChange={(e) => onChange(e)}
-                  maxLength={150}
+                  maxLength={180}
                 />
               )}
             </FormattedMessage>
@@ -158,7 +158,7 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
                 id="Textarea__limit"
                 defaultMessage="Characters limit: "
               />
-              {150 - formData.projectTwoDesc.length}
+              {180 - formData.projectTwoDesc.length}
             </p>
           </div>
         </div>
