@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Radio = ({ Icon, name, onChange }) => {
+const Radio = ({ Icon, name, onChange, check }) => {
   return (
     <div className="radio">
       <input
@@ -8,6 +8,7 @@ const Radio = ({ Icon, name, onChange }) => {
         className="radio__input"
         id={name}
         name={name}
+        defaultChecked={check}
         onChange={(e) => onChange(e)}
       />
       <label htmlFor={name} className="radio__label">

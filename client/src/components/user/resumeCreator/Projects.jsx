@@ -93,21 +93,31 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
             placeholder="Input__projectOneLink"
             onChange={onChange}
           />
-          <FormattedMessage
-            id="Input__projectOneDesc"
-            defaultMessage="Input__projectOneDesc"
-          >
-            {(msg) => (
-              <textarea
-                autoComplete="new-password"
-                name="projectOneDesc"
-                value={formData.projectOneDesc}
-                placeholder={msg}
-                className="textarea textarea__project"
-                onChange={(e) => onChange(e)}
+          <div className="textarea__project">
+            <FormattedMessage
+              id="Input__projectOneDesc"
+              defaultMessage="Input__projectOneDesc"
+            >
+              {(msg) => (
+                <textarea
+                  autoComplete="new-password"
+                  name="projectOneDesc"
+                  value={formData.projectOneDesc}
+                  placeholder={msg}
+                  className="textarea"
+                  onChange={(e) => onChange(e)}
+                  maxLength={180}
+                />
+              )}
+            </FormattedMessage>
+            <p className="resumeForms__field__limit">
+              <FormattedMessage
+                id="Textarea__limit"
+                defaultMessage="Characters limit: "
               />
-            )}
-          </FormattedMessage>
+              {180 - formData.projectOneDesc.length}
+            </p>
+          </div>
         </div>
         <div className="resumeForms__project resumeForms__project--2">
           <InputField
@@ -126,21 +136,31 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
             placeholder="Input__projectTwoLink"
             onChange={onChange}
           />
-          <FormattedMessage
-            id="Input__projectTwoDesc"
-            defaultMessage="Input__projectTwoDesc"
-          >
-            {(msg) => (
-              <textarea
-                autoComplete="new-password"
-                name="projectTwoDesc"
-                value={formData.projectTwoDesc}
-                placeholder={msg}
-                className="textarea textarea__project"
-                onChange={(e) => onChange(e)}
+          <div className="textarea__project">
+            <FormattedMessage
+              id="Input__projectTwoDesc"
+              defaultMessage="Input__projectTwoDesc"
+            >
+              {(msg) => (
+                <textarea
+                  autoComplete="new-password"
+                  name="projectTwoDesc"
+                  value={formData.projectTwoDesc}
+                  placeholder={msg}
+                  className="textarea"
+                  onChange={(e) => onChange(e)}
+                  maxLength={150}
+                />
+              )}
+            </FormattedMessage>
+            <p className="resumeForms__field__limit">
+              <FormattedMessage
+                id="Textarea__limit"
+                defaultMessage="Characters limit: "
               />
-            )}
-          </FormattedMessage>
+              {150 - formData.projectTwoDesc.length}
+            </p>
+          </div>
         </div>
         <div className="resumeForms__project resumeForms__project--3">
           <InputField
@@ -159,21 +179,31 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
             placeholder="Input__projectThreeLink"
             onChange={onChange}
           />
-          <FormattedMessage
-            id="Input__projectThreeDesc"
-            defaultMessage="Input__projectThreeDesc"
-          >
-            {(msg) => (
-              <textarea
-                autoComplete="new-password"
-                name="projectThreeDesc"
-                value={formData.projectThreeDesc}
-                placeholder={msg}
-                className="textarea textarea__project"
-                onChange={(e) => onChange(e)}
+          <div className="textarea__project">
+            <FormattedMessage
+              id="Input__projectThreeDesc"
+              defaultMessage="Input__projectThreeDesc"
+            >
+              {(msg) => (
+                <textarea
+                  autoComplete="new-password"
+                  name="projectThreeDesc"
+                  value={formData.projectThreeDesc}
+                  placeholder={msg}
+                  className="textarea"
+                  onChange={(e) => onChange(e)}
+                  maxLength={115}
+                />
+              )}
+            </FormattedMessage>
+            <p className="resumeForms__field__limit">
+              <FormattedMessage
+                id="Textarea__limit"
+                defaultMessage="Characters limit: "
               />
-            )}
-          </FormattedMessage>
+              {115 - formData.projectThreeDesc.length}
+            </p>
+          </div>
         </div>
       </section>
       <div className="resumeCreator__content__btns">

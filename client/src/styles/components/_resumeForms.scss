@@ -107,6 +107,7 @@
   }
 
   &__field {
+    position: relative;
     display: grid;
     grid-template-rows: 2rem 2rem;
     grid-template-columns: 4rem 20rem;
@@ -170,10 +171,17 @@
         visibility: hidden;
       }
     }
+    &__limit {
+      position: absolute;
+      bottom: 5px;
+      right: 7px;
+      font-size: 1.2rem;
+    }
   }
   &__textarea {
     grid-row: 1 / 5;
     grid-column: 2 / 3;
+    position: relative;
     height: 90%;
     width: 100%;
 

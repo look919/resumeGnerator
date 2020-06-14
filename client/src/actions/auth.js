@@ -298,7 +298,6 @@ export const projectsUpdate = ({
 export const optionUpdate = (data) => async (dispatch) => {
   try {
     localStorage.setItem('option', data);
-    const res = localStorage.getItem('option') || 'proj';
     dispatch({
       type: UPDATE_OPTION_SUCCESS,
       payload: data,

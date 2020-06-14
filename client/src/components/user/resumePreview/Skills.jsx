@@ -77,7 +77,7 @@ const Skills = ({ user }) => {
           <div className="resumePreview__skills__content__item" key={skill}>
             {renderSwitch(skill)}
             <span className="resumePreview__skills__content__item__text">
-              {skill}
+              {skill === 'DotNet' ? '.NET' : skill}
             </span>
           </div>
         ))}
