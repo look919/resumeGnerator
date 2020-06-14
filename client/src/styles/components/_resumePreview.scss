@@ -15,7 +15,7 @@
   grid-template-columns: 6.2fr 3.8fr;
   grid-template-rows: 10rem 6.5rem 4.5rem 9.5rem 7.5rem 2rem;
   grid-column-gap: 1.5rem;
-  transform: scale(1.05);
+  transform: scale(1.1);
   transition: all 1s;
 
   &:hover {
@@ -33,6 +33,7 @@
     }
   }
   @media only screen and (max-width: $bp-1000) {
+    transform: scale(1.1);
     &:hover {
       transform: translateY(0) translateX(0) scale(1);
     }
