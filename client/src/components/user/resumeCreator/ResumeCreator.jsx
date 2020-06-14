@@ -19,9 +19,9 @@ export const ResumeCreator = ({ form, user }) => {
       ) : form === 'projects' ? (
         <Projects user={user} />
       ) : form === 'final' ? (
-        <DownloadPdf />
+        <DownloadPdf user={user} />
       ) : (
-        <DownloadPdf />
+        <DownloadPdf user={user} />
       )}
     </div>
   );

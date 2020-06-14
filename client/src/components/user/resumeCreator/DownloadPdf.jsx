@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 import html2canvas from 'html2canvas';
 import jsPdf from 'jspdf';
 
-const GeneralInfo = () => {
+const GeneralInfo = ({ user }) => {
   const printPDF = () => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
-      scale: 4,
-      letterRendering: 1,
+      scale: 3.5,
       onclone: (document) => {
         document.getElementById('print').style.visibility = 'hidden';
       },
@@ -18,7 +17,7 @@ const GeneralInfo = () => {
 
       var doc = new jsPdf('p', 'mm', 'a4');
       doc.addImage(imgData, 'JPEG', 0, 0, 210, 297, 'FAST');
-      doc.save(`resume.pdf`);
+      doc.save(`resume_${user.name}.pdf`);
     });
   };
   return (
