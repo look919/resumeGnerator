@@ -9,14 +9,13 @@ const GeneralInfo = ({ user }) => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
       scale: 4,
-
       allowTaint: true,
       useCORS: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
 
       var doc = new jsPdf('p', 'mm', 'a4', true);
-      doc.addImage(imgData, 'JPEG', 0, 0, 210, 295, 'FAST');
+      doc.addImage(imgData, 'JPEG', 0, 0, 210, 297, 'FAST');
       doc.save(`resume_${user.name}.pdf`);
     });
   };
