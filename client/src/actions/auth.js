@@ -219,29 +219,31 @@ export const educationUpdate = ({
   }
 };
 export const skillsUpdate = (data) => async (dispatch) => {
-  const body = JSON.stringify({
-    skills: data,
-  });
+  if (data.length <= 12) {
+    const body = JSON.stringify({
+      skills: data,
+    });
 
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  try {
-    const res = await axios.patch('/api/v1/users/updateMe', body, config);
-    dispatch({
-      type: UPDATE_USER_SUCCESS,
-      payload: res.data.data.user,
-    });
-    dispatch(setAlert('Data Saved', 'success'));
-  } catch (err) {
-    dispatch(setAlert('Data could not be saved', 'danger'));
-    dispatch({
-      type: UPDATE_USER_FAIL,
-      payload: err.message,
-    });
-  }
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const res = await axios.patch('/api/v1/users/updateMe', body, config);
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: res.data.data.user,
+      });
+      dispatch(setAlert('Data Saved', 'success'));
+    } catch (err) {
+      dispatch(setAlert('Data could not be saved', 'danger'));
+      dispatch({
+        type: UPDATE_USER_FAIL,
+        payload: err.message,
+      });
+    }
+  } else dispatch(setAlert('Maximum 12 skills can be added', 'danger'));
 };
 export const projectsUpdate = ({
   projectOneName,

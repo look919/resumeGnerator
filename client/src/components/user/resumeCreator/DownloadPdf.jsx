@@ -10,8 +10,6 @@ const GeneralInfo = () => {
     html2canvas(domElement, {
       scale: 4,
       letterRendering: 1,
-      allowTaint: true,
-      useCORS: true,
       onclone: (document) => {
         document.getElementById('print').style.visibility = 'hidden';
       },
