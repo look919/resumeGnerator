@@ -8,10 +8,9 @@ const GeneralInfo = ({ user }) => {
   const printPDF = () => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
-      scale: 3.5,
-      onclone: (document) => {
-        document.getElementById('print').style.visibility = 'hidden';
-      },
+      scale: 3,
+      allowTaint: true,
+      useCORS: true,
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
 

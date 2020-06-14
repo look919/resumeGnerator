@@ -49,6 +49,8 @@
   "Input__projectThreeLink": "3ci projekt link/okres zatrudnienia",
   "Input__projectThreeDesc": "opis projektu/zatrudnienia",
   "Textarea__limit": "Limit znaków: ",
+  "Download.info": "Twoje CV jest gotowe, kliknij żeby je pobrać!",
+  "Download.btn": "Pobierz",
 
   "Header.summary": "O mnie",
   "Header.education": "Edukacja",

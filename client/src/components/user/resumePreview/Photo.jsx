@@ -5,7 +5,12 @@ const Photo = ({ user }) => {
 
   return (
     <div className="resumePreview__photo">
-      <img src={user.photo} alt="user" className="resumePreview__photo__img" />
+      <img
+        src={user.photo}
+        alt="user"
+        className="resumePreview__photo__img"
+        crossOrigin="anonymous"
+      />
     </div>
   );
 };
