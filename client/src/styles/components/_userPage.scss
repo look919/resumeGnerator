@@ -42,7 +42,7 @@
     }
     @media only screen and (max-width: $bp-1000) {
       grid-template-columns: 1fr;
-      grid-template-rows: min-content 1fr;
+      grid-template-rows: 1fr 60rem;
       grid-column-gap: 0;
       grid-row-gap: 5rem;
     }

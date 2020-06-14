@@ -1,6 +1,7 @@
 .resumeCreator {
   width: 100%;
   height: 55rem;
+  height: 80%;
 
   display: grid;
   grid-template-rows: 3rem 1fr;
@@ -8,9 +9,10 @@
   justify-items: center;
 
   @media only screen and (max-width: $bp-1600) {
-    height: 44.55rem;
+    height: 80%;
   }
   @media only screen and (max-width: $bp-1000) {
+    height: 60rem;
     width: 80%;
     margin: 4rem 0;
   }
@@ -19,6 +21,7 @@
   }
   @media only screen and (max-width: $bp-500) {
     height: 100%;
+    margin-bottom: 0;
   }
 
   &__list {
