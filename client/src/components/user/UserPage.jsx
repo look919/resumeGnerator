@@ -17,7 +17,9 @@ const UserPage = ({ auth, user, ...props }) => {
       <UserPageHeader />
       <section className="userPage__content">
         <ResumeCreator form={props.match.params.form} user={user} />
-        <ResumePreview user={user} />
+        <div id="resume" className="resumePreviewBox">
+          <ResumePreview user={user} />
+        </div>
       </section>
     </main>
   );

@@ -1,21 +1,12 @@
-.resumePreview {
+.resumePreviewBox {
   //a4 21x29,7 in 1.5 scale
   width: 31.5rem;
   height: 44.55rem;
-
   //border: 1px solid $color-black;
   background-color: $color-white;
   box-shadow: 0 1rem 4rem rgba($color-black, 0.4);
-
   //a4 margins
-  padding: 2rem 2.8rem;
-  padding-right: 2.2rem;
-
-  display: grid;
-  grid-template-columns: 6.2fr 3.8fr;
-  grid-template-rows: 10rem 6.5rem 4.5rem 9.5rem 7.5rem 2rem;
-  grid-column-gap: 1.5rem;
-  transform: scale(1.1);
+  padding: 2rem 2rem 1.4rem 2.4rem !important;
   transition: all 1s;
 
   &:hover {
@@ -41,6 +32,15 @@
   @media only screen and (max-width: $bp-350) {
     display: none;
   }
+}
+.resumePreview {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 6.2fr 3.8fr;
+  grid-template-rows: 10rem 6.5rem 4.5rem 9.5rem 7.5rem 1fr;
+  grid-column-gap: 1.5rem;
 
   &__heading {
     font-size: 1rem;
@@ -296,5 +296,6 @@
     font-size: 5px;
     margin-top: 2px;
     color: $color-grey-light-2;
+    align-self: center;
   }
 }

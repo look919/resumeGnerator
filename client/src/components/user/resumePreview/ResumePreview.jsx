@@ -13,7 +13,7 @@ import Clause from './Clause';
 
 const ResumePreview = ({ user }) => {
   return (
-    <section className="resumePreview" id="resume">
+    <section className="resumePreview">
       <AboutMe user={user} />
       <Photo user={user} />
       <Summary user={user} />
