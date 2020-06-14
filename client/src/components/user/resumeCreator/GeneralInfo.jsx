@@ -164,7 +164,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
                 placeholder={msg}
                 className="textarea"
                 onChange={(e) => onChange(e)}
-                maxLength={225}
+                maxLength={240}
               />
             )}
           </FormattedMessage>
@@ -173,7 +173,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
               id="Textarea__limit"
               defaultMessage="Characters limit: "
             />
-            {225 - formData.summary.length}
+            {240 - formData.summary.length}
           </p>
         </div>
       </section>
