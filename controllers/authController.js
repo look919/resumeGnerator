@@ -20,9 +20,12 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     //secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   };
-  if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-  res.cookie('jwt', token, cookieOptions);
+  if (process.env.NODE_ENV === 'production') {
+    cookieOptions.secure = true;
+    res.cookie('jwt', token, cookieOptions);
+  } else {
+    res.cookie('jwt', token); //due to cors
+  }
 
   //Remove password from output
   user.password = undefined;

@@ -24,6 +24,7 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get('/api/v1/users/auth');
+
     dispatch({
       type: AUTH_SUCCESS,
       payload: res.data.user,
@@ -147,6 +148,7 @@ export const generalInfoUpdate = ({
     dispatch(setAlert('Data Saved', 'success'));
   } catch (err) {
     dispatch(setAlert('Data could not be saved', 'danger'));
+    console.log(err.response);
     dispatch({
       type: UPDATE_USER_FAIL,
       payload: err.message,
