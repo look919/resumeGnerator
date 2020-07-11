@@ -15,6 +15,7 @@ import {
 } from '../../layout/Icons';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import LoadingGIf from '../../../img/loading.gif';
 
 const Education = ({ user, educationUpdate }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
@@ -36,6 +37,7 @@ const Education = ({ user, educationUpdate }) => {
     certificateTwo: user.certification[1],
     changes: false,
     direction: 'none',
+    loading: false,
   });
 
   const onChange = (e) =>
@@ -50,16 +52,22 @@ const Education = ({ user, educationUpdate }) => {
   const onSliderTwoChange = (e) =>
     setFormData({ ...formData, languagesTwoLevel: e });
 
-  const handleSaveDataAndRedirect = (direction) => {
+  const handleSaveDataAndRedirect = async (direction) => {
+    setFormData({
+      ...formData,
+      loading: true,
+    });
     if (formData.changes) {
-      educationUpdate(formData);
-      setFormData({
+      await educationUpdate(formData);
+      await setFormData({
         ...formData,
         redirect: direction,
+        loading: false,
       });
     } else {
       setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     }
@@ -257,12 +265,22 @@ const Education = ({ user, educationUpdate }) => {
           />
         </button>
         <div className="resumeCreator__content__btns__info">
-          <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          {!formData.loading && (
+            <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          )}
           <span className="resumeCreator__content__btns__info__text">
-            <FormattedMessage
-              id="Info.education"
-              defaultMessage="It is recommended to fill in all fields, after all you can clear the entire section content to get rid of it"
-            />
+            {!formData.loading ? (
+              <FormattedMessage
+                id="Info.education"
+                defaultMessage="It is recommended to fill in all fields, after all you can clear the entire section content to get rid of it"
+              />
+            ) : (
+              <img
+                src={LoadingGIf}
+                alt="loading..."
+                className="resumeCreator__content__btns__info__loading"
+              />
+            )}
           </span>
         </div>
         <button

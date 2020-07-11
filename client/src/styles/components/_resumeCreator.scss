@@ -156,6 +156,12 @@
             font-size: 1rem;
           }
         }
+        &__loading {
+          width: 4rem;
+          height: 4rem;
+          background: none;
+          border: none;
+        }
       }
       &__btn {
         font-size: 1.4rem;

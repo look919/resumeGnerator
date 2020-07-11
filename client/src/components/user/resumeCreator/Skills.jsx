@@ -8,6 +8,7 @@ import { skillsUpdate } from '../../../actions/auth';
 import { InfoIcon } from '../../layout/Icons';
 import * as Ic from '../../layout/BrandIcons';
 import Radio from './Radio';
+import LoadingGIf from '../../../img/loading.gif';
 
 const Skills = ({ skillsUpdate, user }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
@@ -65,15 +66,21 @@ const Skills = ({ skillsUpdate, user }) => {
   });
 
   const handleSaveDataAndRedirect = async (direction) => {
+    setFormData({
+      ...formData,
+      loading: true,
+    });
     if (formData.changes) {
       await skillsUpdate(data);
       await setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     } else {
       setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     }
@@ -256,12 +263,22 @@ const Skills = ({ skillsUpdate, user }) => {
           <FormattedMessage id="Btn.education" defaultMessage="Education" />
         </button>
         <div className="resumeCreator__content__btns__info">
-          <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          {!formData.loading && (
+            <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          )}
           <span className="resumeCreator__content__btns__info__text">
-            <FormattedMessage
-              id="Info.skills"
-              defaultMessage="The optimal number of selected technologies for this design is 10"
-            />
+            {!formData.loading ? (
+              <FormattedMessage
+                id="Info.skills"
+                defaultMessage="The optimal number of selected technologies for this design is 10"
+              />
+            ) : (
+              <img
+                src={LoadingGIf}
+                alt="loading..."
+                className="resumeCreator__content__btns__info__loading"
+              />
+            )}
           </span>
         </div>
         <button

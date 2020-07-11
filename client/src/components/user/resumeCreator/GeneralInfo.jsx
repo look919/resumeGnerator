@@ -17,6 +17,7 @@ import {
   PhotoIcon,
   InfoIcon,
 } from '../../layout/Icons';
+import LoadingGIf from '../../../img/loading.gif';
 
 const GeneralInfo = ({ user, generalInfoUpdate }) => {
   if (!user) user = require('../../../utils/defaultUser.json');
@@ -32,6 +33,7 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
     summary: user.summary,
     changes: false,
     redirect: 'none',
+    loading: false,
   });
 
   const onChange = (e) =>
@@ -49,10 +51,15 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
   };
 
   const handleSaveDataAndRedirect = async (direction) => {
+    setFormData({
+      ...formData,
+      loading: true,
+    });
     if (formData.changes) {
       await generalInfoUpdate(formData);
       await setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     } else {
@@ -169,12 +176,22 @@ const GeneralInfo = ({ user, generalInfoUpdate }) => {
 
       <div className="resumeCreator__content__btns">
         <div className="resumeCreator__content__btns__info">
-          <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          {!formData.loading && (
+            <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          )}
           <span className="resumeCreator__content__btns__info__text">
-            <FormattedMessage
-              id="Info.generalInfo"
-              defaultMessage="Continue to save changes"
-            />
+            {!formData.loading ? (
+              <FormattedMessage
+                id="Info.generalInfo"
+                defaultMessage="Continue to save changes"
+              />
+            ) : (
+              <img
+                src={LoadingGIf}
+                alt="loading..."
+                className="resumeCreator__content__btns__info__loading"
+              />
+            )}
           </span>
         </div>
         <button

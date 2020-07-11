@@ -13,6 +13,7 @@ import {
   InfoIcon,
   CalendarIcon,
 } from '../../layout/Icons';
+import LoadingGIf from '../../../img/loading.gif';
 
 export const Context = React.createContext();
 
@@ -30,6 +31,7 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
     projectThreeLink: user.projects[2].url,
     projectThreeDesc: user.projects[2].description,
     changes: false,
+    loading: false,
   });
   const onChange = (e) => {
     setFormData({
@@ -43,15 +45,21 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
   };
 
   const handleSaveDataAndRedirect = async (direction) => {
+    setFormData({
+      ...formData,
+      loading: true,
+    });
     if (formData.changes) {
       await projectsUpdate(formData);
       await setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     } else {
       setFormData({
         ...formData,
+        loading: false,
         redirect: direction,
       });
     }
@@ -214,12 +222,22 @@ const Projects = ({ user, projectsUpdate, optionUpdate, option }) => {
           <FormattedMessage id="Btn.skills" defaultMessage="Skills" />
         </button>
         <div className="resumeCreator__content__btns__info">
-          <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          {!formData.loading && (
+            <InfoIcon className="resumeCreator__content__btns__info__icon" />
+          )}
           <span className="resumeCreator__content__btns__info__text">
-            <FormattedMessage
-              id="Info.projects"
-              defaultMessage="Organize projects from the most important by gradually reducing the amount of text with each subsequent"
-            />
+            {!formData.loading ? (
+              <FormattedMessage
+                id="Info.projects"
+                defaultMessage="Organize projects from the most important by gradually reducing the amount of text with each subsequent"
+              />
+            ) : (
+              <img
+                src={LoadingGIf}
+                alt="loading..."
+                className="resumeCreator__content__btns__info__loading"
+              />
+            )}
           </span>
         </div>
         <button
