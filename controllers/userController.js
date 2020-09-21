@@ -1,11 +1,11 @@
 const multer = require('multer');
 const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
 //const sharp = require('sharp');
 const User = require('./../models/userModel');
 const factory = require('./handlerFactory');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const multerS3 = require('multer-s3');
 
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User, { path: 'orders' });

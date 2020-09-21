@@ -21,13 +21,12 @@ const Skills = ({ skillsUpdate, user }) => {
   useEffect(() => {
     setFormData({
       ...setFormData,
-      Linux: document.getElementById('Linux').checked,
       Git: document.getElementById('Git').checked,
       HTML: document.getElementById('HTML').checked,
       CSS: document.getElementById('CSS').checked,
       Sass: document.getElementById('Sass').checked,
       JavaScript: document.getElementById('JavaScript').checked,
-      NodeJs: document.getElementById('NodeJs').checked,
+      TypeScript: document.getElementById('TypeScript').checked,
       CSharp: document.getElementById('CSharp').checked,
       DotNet: document.getElementById('DotNet').checked,
       Python: document.getElementById('Python').checked,
@@ -42,6 +41,7 @@ const Skills = ({ skillsUpdate, user }) => {
       Angular: document.getElementById('Angular').checked,
       React: document.getElementById('React').checked,
       Redux: document.getElementById('Redux').checked,
+      NodeJs: document.getElementById('NodeJs').checked,
       MySQL: document.getElementById('MySQL').checked,
       MongoDB: document.getElementById('MongoDB').checked,
       AWS: document.getElementById('AWS').checked,
@@ -247,6 +247,12 @@ const Skills = ({ skillsUpdate, user }) => {
           name="Spring"
           onChange={onChange}
           check={handleRadioChecking('Spring')}
+        />
+        <Radio
+          Icon={Ic.TypescriptIcon}
+          name="TypeScript"
+          onChange={onChange}
+          check={handleRadioChecking('TypeScript')}
         />
         <Radio
           Icon={Ic.VueJsIcon}

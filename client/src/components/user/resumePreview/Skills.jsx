@@ -58,6 +58,8 @@ const Skills = ({ user }) => {
         return <Ic.SassIcon />;
       case 'Spring':
         return <Ic.SpringIcon />;
+      case 'TypeScript':
+        return <Ic.TypescriptIcon />;
       case 'VueJs':
         return <Ic.VueJsIcon />;
       default:
@@ -77,7 +79,11 @@ const Skills = ({ user }) => {
           <div className="resumePreview__skills__content__item" key={skill}>
             {renderSwitch(skill)}
             <span className="resumePreview__skills__content__item__text">
-              {skill === 'DotNet' ? '.NET' : skill}
+              {skill === 'AWS'
+                ? 'EC2, S3'
+                : skill === 'DotNet'
+                ? '.NET'
+                : skill}
             </span>
           </div>
         ))}

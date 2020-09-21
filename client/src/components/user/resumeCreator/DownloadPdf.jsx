@@ -8,7 +8,7 @@ const GeneralInfo = ({ user }) => {
   const printPDF = () => {
     const domElement = document.getElementById('resume');
     html2canvas(domElement, {
-      scale: 4,
+      scale: 5,
       allowTaint: true,
       useCORS: true,
     }).then((canvas) => {
